@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<title>Полиглот · английский по методу Петрова</title>
+<meta name="description" content="Тренажёр английского по методу Дмитрия Петрова: 16 уроков, базовая таблица глагола, карточки с интервальным повторением.">
+<meta name="theme-color" content="#100E0C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Полиглот">
+
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzEwMEUwQyIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0UwQTE1NSIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgIDxwYXRoIGQ9Ik0xMzYgMTM2aDI0ME0xMzYgMjU2aDI0ME0xMzYgMzc2aDI0MCIvPgogICAgPHBhdGggZD0iTTIxNiAxMTZ2MjgwTTI5NiAxMTZ2MjgwIiBvcGFjaXR5PSIuMzUiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iMTc2IiBjeT0iMTk2IiByPSIyMCIgZmlsbD0iI0UwQTE1NSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjMxNiIgcj0iMjAiIGZpbGw9IiNDNDUzMkYiLz4KICA8Y2lyY2xlIGN4PSIzMzYiIGN5PSIxOTYiIHI9IjIwIiBmaWxsPSIjRTBBMTU1IiBvcGFjaXR5PSIuNSIvPgo8L3N2Zz4K">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzEwMEUwQyIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0UwQTE1NSIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj4KICAgIDxwYXRoIGQ9Ik0xMzYgMTM2aDI0ME0xMzYgMjU2aDI0ME0xMzYgMzc2aDI0MCIvPgogICAgPHBhdGggZD0iTTIxNiAxMTZ2MjgwTTI5NiAxMTZ2MjgwIiBvcGFjaXR5PSIuMzUiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iMTc2IiBjeT0iMTk2IiByPSIyMCIgZmlsbD0iI0UwQTE1NSIvPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjMxNiIgcj0iMjAiIGZpbGw9IiNDNDUzMkYiLz4KICA8Y2lyY2xlIGN4PSIzMzYiIGN5PSIxOTYiIHI9IjIwIiBmaWxsPSIjRTBBMTU1IiBvcGFjaXR5PSIuNSIvPgo8L3N2Zz4K" type="image/svg+xml">
+<style>
+/* ============================================================
+   ПОЛИГЛОТ · стили
+   ============================================================ */
+
+:root {
+  --bg:        #100E0C;
+  --bg-2:      #1A1714;
+  --card:      #211D19;
+  --card-2:    #2A251F;
+  --line:      #352F28;
+  --ink:       #F2EDE6;
+  --ink-dim:   #A79C8E;
+  --ink-faint: #6E6458;
+  --accent:    #E0A155;
+  --accent-2:  #C4532F;
+  --ok:        #6FAE6B;
+  --bad:       #D2604F;
+  --radius:    16px;
+  --tap:       52px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+input  { font: inherit; }
+
+/* ---------- каркас ---------- */
+
+#app {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 14px) 16px 96px;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.topbar .back {
+  width: 40px; height: 40px; flex: 0 0 40px;
+  display: grid; place-items: center;
+  background: var(--card); border-radius: 12px;
+  font-size: 20px; color: var(--ink-dim);
+}
+.topbar h1 { font-size: 19px; margin: 0; font-weight: 650; letter-spacing: -0.01em; }
+.topbar .sub { font-size: 13px; color: var(--ink-faint); margin-top: 1px; }
+.topbar .spacer { flex: 1; }
+
+.brand {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px;
+}
+.brand h1 {
+  font-size: 26px; margin: 0; font-weight: 700; letter-spacing: -0.02em;
+}
+.brand span { font-size: 13px; color: var(--ink-faint); }
+
+/* ---------- карточки ---------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.row { display: flex; align-items: center; gap: 12px; }
+.grow { flex: 1; min-width: 0; }
+
+/* ---------- статистика сверху ---------- */
+
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin-bottom: 18px;
+}
+.stat {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 12px 10px; text-align: center;
+}
+.stat .v { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.stat .k { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+.stat.hot .v { color: var(--accent); }
+
+/* ---------- кнопки ---------- */
+
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--tap);
+  padding: 0 20px;
+  border-radius: 14px;
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  font-weight: 600;
+  transition: transform .08s ease, background .15s ease;
+  width: 100%;
+  text-align: center;
+}
+.btn:active { transform: scale(.98); }
+.btn.primary { background: var(--accent); color: #1A1206; border-color: transparent; }
+.btn.danger  { background: var(--accent-2); color: #fff; border-color: transparent; }
+.btn.ghost   { background: transparent; }
+.btn.sm      { min-height: 42px; font-size: 15px; padding: 0 14px; width: auto; }
+.btn[disabled] { opacity: .4; }
+
+.btn-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.btn-row .btn { flex: 1; }
+
+/* ---------- список уроков ---------- */
+
+.lesson {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px;
+  margin-bottom: 10px;
+}
+.lesson.locked { opacity: .42; }
+.lesson .num {
+  width: 42px; height: 42px; flex: 0 0 42px;
+  display: grid; place-items: center;
+  border-radius: 12px; background: var(--card-2);
+  font-weight: 700; font-size: 16px;
+}
+.lesson.done .num { background: var(--ok); color: #0C1A0B; }
+.lesson.current .num { background: var(--accent); color: #1A1206; }
+.lesson .t { font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
+.lesson .g { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+.lesson .chev { color: var(--ink-faint); font-size: 20px; }
+
+/* ---------- вкладки ---------- */
+
+.tabs {
+  display: flex; gap: 6px; background: var(--bg-2);
+  padding: 4px; border-radius: 14px; margin-bottom: 16px;
+}
+.tabs button {
+  flex: 1; min-height: 40px; border-radius: 10px;
+  font-size: 14px; font-weight: 600; color: var(--ink-dim);
+}
+.tabs button.on { background: var(--card-2); color: var(--ink); }
+
+/* ---------- теория ---------- */
+
+.theory { font-size: 16px; line-height: 1.62; }
+.theory h3 {
+  font-size: 15px; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--accent); margin: 26px 0 10px;
+}
+.theory p { margin: 0 0 12px; }
+.theory ul { margin: 0 0 14px; padding-left: 20px; }
+.theory li { margin-bottom: 6px; }
+.theory b { color: #fff; font-weight: 650; }
+.theory .lead { font-size: 17px; }
+.theory .dim { color: var(--ink-faint); font-size: 14px; }
+.theory .note {
+  background: var(--bg-2); border-left: 3px solid var(--accent);
+  padding: 10px 12px; border-radius: 0 10px 10px 0; font-size: 15px;
+}
+.theory .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14.5px; background: var(--bg-2);
+  padding: 10px 12px; border-radius: 10px; line-height: 1.7;
+}
+.theory .bad { color: var(--bad); text-decoration: line-through; }
+.theory blockquote {
+  margin: 0 0 14px; padding: 12px 14px;
+  background: var(--bg-2); border-radius: 12px; line-height: 1.8;
+}
+
+.table-wrap { overflow-x: auto; margin: 0 0 16px; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+table th, table td {
+  border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top;
+}
+table th { background: var(--bg-2); font-weight: 600; color: var(--ink-dim); font-size: 13px; }
+table.petrov td { min-width: 96px; }
+table.pairs td:first-child { font-weight: 600; white-space: nowrap; }
+table.pairs td:last-child { color: var(--ink-dim); }
+
+/* ---------- тренажёр ---------- */
+
+.drill-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  font-size: 13px; color: var(--ink-faint);
+}
+.bar { flex: 1; height: 6px; background: var(--bg-2); border-radius: 99px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--accent); transition: width .3s ease; }
+
+.prompt {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px 18px;
+  text-align: center; margin-bottom: 14px;
+}
+.prompt .hint {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent); margin-bottom: 10px;
+}
+.prompt .ru { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; }
+
+.answer {
+  min-height: 68px; border: 1.5px dashed var(--line); border-radius: 14px;
+  padding: 10px; margin-bottom: 14px;
+  display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start;
+}
+.answer.ok  { border-color: var(--ok);  border-style: solid; background: rgba(111,174,107,.09); }
+.answer.bad { border-color: var(--bad); border-style: solid; background: rgba(210,96,79,.09); }
+
+.tiles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tile {
+  min-height: 44px; padding: 0 14px;
+  display: inline-flex; align-items: center;
+  background: var(--card-2); border: 1px solid var(--line);
+  border-radius: 11px; font-size: 16px; font-weight: 500;
+}
+.tile:active { transform: scale(.95); }
+.tile.used { opacity: .22; pointer-events: none; }
+
+.feedback { margin-bottom: 14px; text-align: center; }
+.feedback .correct { font-size: 20px; font-weight: 650; }
+.feedback .label { font-size: 13px; color: var(--ink-faint); margin-bottom: 4px; }
+.feedback.ok .correct  { color: var(--ok); }
+.feedback.bad .correct { color: var(--bad); }
+
+.typed {
+  width: 100%; min-height: var(--tap);
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 12px 14px; color: var(--ink);
+  margin-bottom: 12px;
+}
+.typed:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+/* ---------- карточки слов ---------- */
+
+.flash {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 34px 20px;
+  text-align: center; margin-bottom: 14px; min-height: 190px;
+  display: flex; flex-direction: column; justify-content: center; gap: 12px;
+}
+.flash .word { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+.flash .tr   { font-size: 20px; color: var(--accent); }
+.flash .tap  { font-size: 13px; color: var(--ink-faint); }
+
+.grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.grade .btn { font-size: 14px; padding: 0 8px; }
+
+/* ---------- прочее ---------- */
+
+.speak {
+  width: 44px; height: 44px; flex: 0 0 44px;
+  display: grid; place-items: center;
+  background: var(--card-2); border: 1px solid var(--line);
+  border-radius: 12px; font-size: 19px;
+}
+
+.empty { text-align: center; color: var(--ink-faint); padding: 40px 20px; }
+.empty .big { font-size: 40px; margin-bottom: 10px; }
+
+.profile-pick { display: grid; gap: 10px; margin-top: 30px; }
+.profile-pick .btn { min-height: 64px; font-size: 18px; }
+
+.wordlist { display: grid; gap: 6px; }
+.wordlist .w {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; font-size: 15px;
+}
+.wordlist .w b { font-weight: 600; min-width: 42%; }
+.wordlist .w span { color: var(--ink-dim); flex: 1; }
+
+.toast {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  background: var(--card-2); border: 1px solid var(--line);
+  padding: 12px 18px; border-radius: 14px; font-size: 15px;
+  z-index: 50; box-shadow: 0 8px 30px rgba(0,0,0,.5);
+  animation: pop .25s ease;
+}
+@keyframes pop { from { opacity: 0; transform: translate(-50%, 10px); } }
+
+.footnote { font-size: 12.5px; color: var(--ink-faint); text-align: center; margin-top: 20px; line-height: 1.6; }
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* ============================================================
+   ПОЛИГЛОТ · Данные грамматического движка
+   Метод Дмитрия Петрова: 3 времени × 3 формы = базовая таблица
+   ============================================================ */
+
+/* Местоимения-подлежащие. Порядок = индекс лица (0..5) */
+const PRONOUNS = [
+  { en: 'I',    ru: 'я',   third: false },
+  { en: 'you',  ru: 'ты',  third: false },
+  { en: 'he',   ru: 'он',  third: true  },
+  { en: 'she',  ru: 'она', third: true  },
+  { en: 'we',   ru: 'мы',  third: false },
+  { en: 'they', ru: 'они', third: false }
+];
+
+/* Объектные местоимения (урок 2) */
+const OBJ_PRONOUNS = [
+  { en: 'me',   ru: 'меня' },
+  { en: 'you',  ru: 'тебя' },
+  { en: 'him',  ru: 'его'  },
+  { en: 'her',  ru: 'её'   },
+  { en: 'us',   ru: 'нас'  },
+  { en: 'them', ru: 'их'   }
+];
+
+/* Притяжательные (урок 4) */
+const POSSESSIVES = [
+  { en: 'my',    ru: 'мой / моя / моё' },
+  { en: 'your',  ru: 'твой / ваш' },
+  { en: 'his',   ru: 'его' },
+  { en: 'her',   ru: 'её' },
+  { en: 'our',   ru: 'наш' },
+  { en: 'their', ru: 'их' }
+];
+
+/*
+  Глаголы.
+  en   — базовая форма
+  p2   — вторая форма (прошедшее утверждение). null = правильный глагол (+ed)
+  p3   — третья форма (причастие, Perfect/пассив). null = как p2
+  ru   — { inf, pres:[я,ты,он,она,мы,они], pm, pf, pp }
+         pm/pf/pp = прошедшее: муж. / жен. / мн.ч.
+  o    — список дополнений [английское, русское]; '' = без дополнения
+  L    — с какого урока глагол доступен в тренажёре
+*/
+const VERBS = [
+  { en:'love', p2:null, p3:null, L:1,
+    ru:{ inf:'любить', pres:['люблю','любишь','любит','любит','любим','любят'], pm:'любил', pf:'любила', pp:'любили' },
+    o:[['','' ],['you','тебя'],['this city','этот город'],['coffee','кофе'],['music','музыку']] },
+
+  { en:'live', p2:null, p3:null, L:1,
+    ru:{ inf:'жить', pres:['живу','живёшь','живёт','живёт','живём','живут'], pm:'жил', pf:'жила', pp:'жили' },
+    o:[['','' ],['here','здесь'],['in Moscow','в Москве'],['alone','один']] },
+
+  { en:'work', p2:null, p3:null, L:1,
+    ru:{ inf:'работать', pres:['работаю','работаешь','работает','работает','работаем','работают'], pm:'работал', pf:'работала', pp:'работали' },
+    o:[['','' ],['here','здесь'],['at home','дома'],['every day','каждый день'],['a lot','много']] },
+
+  { en:'open', p2:null, p3:null, L:1,
+    ru:{ inf:'открывать', pres:['открываю','открываешь','открывает','открывает','открываем','открывают'], pm:'открывал', pf:'открывала', pp:'открывали' },
+    o:[['','' ],['the door','дверь'],['the window','окно'],['the box','коробку']] },
+
+  { en:'close', p2:null, p3:null, L:1,
+    ru:{ inf:'закрывать', pres:['закрываю','закрываешь','закрывает','закрывает','закрываем','закрывают'], pm:'закрывал', pf:'закрывала', pp:'закрывали' },
+    o:[['','' ],['the door','дверь'],['the window','окно'],['the shop','магазин']] },
+
+  { en:'see', p2:'saw', p3:'seen', L:1,
+    ru:{ inf:'видеть', pres:['вижу','видишь','видит','видит','видим','видят'], pm:'видел', pf:'видела', pp:'видели' },
+    o:[['','' ],['him','его'],['her','её'],['this film','этот фильм'],['the sea','море']] },
+
+  { en:'come', p2:'came', p3:'come', L:1,
+    ru:{ inf:'приходить', pres:['прихожу','приходишь','приходит','приходит','приходим','приходят'], pm:'приходил', pf:'приходила', pp:'приходили' },
+    o:[['','' ],['here','сюда'],['home','домой'],['early','рано'],['late','поздно']] },
+
+  { en:'go', p2:'went', p3:'gone', L:1,
+    ru:{ inf:'ходить', pres:['хожу','ходишь','ходит','ходит','ходим','ходят'], pm:'ходил', pf:'ходила', pp:'ходили' },
+    o:[['','' ],['there','туда'],['home','домой'],['to work','на работу']] },
+
+  { en:'know', p2:'knew', p3:'known', L:1,
+    ru:{ inf:'знать', pres:['знаю','знаешь','знает','знает','знаем','знают'], pm:'знал', pf:'знала', pp:'знали' },
+    o:[['','' ],['him','его'],['this','это'],['the truth','правду'],['the answer','ответ']] },
+
+  { en:'want', p2:null, p3:null, L:3,
+    ru:{ inf:'хотеть', pres:['хочу','хочешь','хочет','хочет','хотим','хотят'], pm:'хотел', pf:'хотела', pp:'хотели' },
+    o:[['','' ],['coffee','кофе'],['water','воды'],['this','это'],['to go home','пойти домой']] },
+
+  { en:'help', p2:null, p3:null, L:2,
+    ru:{ inf:'помогать', pres:['помогаю','помогаешь','помогает','помогает','помогаем','помогают'], pm:'помогал', pf:'помогала', pp:'помогали' },
+    o:[['','' ],['me','мне'],['him','ему'],['her','ей'],['them','им']] },
+
+  { en:'read', p2:'read', p3:'read', L:2,
+    ru:{ inf:'читать', pres:['читаю','читаешь','читает','читает','читаем','читают'], pm:'читал', pf:'читала', pp:'читали' },
+    o:[['','' ],['this book','эту книгу'],['the news','новости'],['in English','по-английски']] },
+
+  { en:'write', p2:'wrote', p3:'written', L:2,
+    ru:{ inf:'писать', pres:['пишу','пишешь','пишет','пишет','пишем','пишут'], pm:'писал', pf:'писала', pp:'писали' },
+    o:[['','' ],['a letter','письмо'],['in English','по-английски'],['my name','моё имя']] },
+
+  { en:'speak', p2:'spoke', p3:'spoken', L:1,
+    ru:{ inf:'разговаривать', pres:['разговариваю','разговариваешь','разговаривает','разговаривает','разговариваем','разговаривают'], pm:'разговаривал', pf:'разговаривала', pp:'разговаривали' },
+    o:[['','' ],['English','по-английски'],['with him','с ним'],['fast','быстро'],['well','хорошо']] },
+
+  { en:'say', p2:'said', p3:'said', L:2,
+    ru:{ inf:'говорить', pres:['говорю','говоришь','говорит','говорит','говорим','говорят'], pm:'говорил', pf:'говорила', pp:'говорили' },
+    o:[['','' ],['the truth','правду'],['this','это'],['nothing','ничего']] },
+
+  { en:'do', p2:'did', p3:'done', L:1,
+    ru:{ inf:'делать', pres:['делаю','делаешь','делает','делает','делаем','делают'], pm:'делал', pf:'делала', pp:'делали' },
+    o:[['','' ],['this','это'],['my work','мою работу'],['nothing','ничего']] },
+
+  { en:'make', p2:'made', p3:'made', L:3,
+    ru:{ inf:'создавать', pres:['создаю','создаёшь','создаёт','создаёт','создаём','создают'], pm:'создавал', pf:'создавала', pp:'создавали' },
+    o:[['','' ],['a plan','план'],['a website','сайт'],['problems','проблемы']] },
+
+  { en:'take', p2:'took', p3:'taken', L:3,
+    ru:{ inf:'брать', pres:['беру','берёшь','берёт','берёт','берём','берут'], pm:'брал', pf:'брала', pp:'брали' },
+    o:[['','' ],['this book','эту книгу'],['a taxi','такси'],['money','деньги']] },
+
+  { en:'give', p2:'gave', p3:'given', L:3,
+    ru:{ inf:'давать', pres:['даю','даёшь','даёт','даёт','даём','дают'], pm:'давал', pf:'давала', pp:'давали' },
+    o:[['','' ],['money','деньги'],['an answer','ответ'],['this to him','это ему']] },
+
+  { en:'think', p2:'thought', p3:'thought', L:2,
+    ru:{ inf:'думать', pres:['думаю','думаешь','думает','думает','думаем','думают'], pm:'думал', pf:'думала', pp:'думали' },
+    o:[['','' ],['about it','об этом'],['about you','о тебе'],['so','так']] },
+
+  { en:'find', p2:'found', p3:'found', L:4,
+    ru:{ inf:'находить', pres:['нахожу','находишь','находит','находит','находим','находят'], pm:'находил', pf:'находила', pp:'находили' },
+    o:[['','' ],['the answer','ответ'],['my keys','мои ключи'],['a job','работу']] },
+
+  { en:'get', p2:'got', p3:'got', L:4,
+    ru:{ inf:'получать', pres:['получаю','получаешь','получает','получает','получаем','получают'], pm:'получал', pf:'получала', pp:'получали' },
+    o:[['','' ],['money','деньги'],['a letter','письмо'],['an answer','ответ']] },
+
+  { en:'have', p2:'had', p3:'had', L:3,
+    ru:{ inf:'иметь', pres:['имею','имеешь','имеет','имеет','имеем','имеют'], pm:'имел', pf:'имела', pp:'имели' },
+    o:[['','' ],['time','время'],['money','деньги'],['a car','машину'],['a question','вопрос']] },
+
+  { en:'eat', p2:'ate', p3:'eaten', L:2,
+    ru:{ inf:'есть', pres:['ем','ешь','ест','ест','едим','едят'], pm:'ел', pf:'ела', pp:'ели' },
+    o:[['','' ],['bread','хлеб'],['fish','рыбу'],['at home','дома']] },
+
+  { en:'drink', p2:'drank', p3:'drunk', L:2,
+    ru:{ inf:'пить', pres:['пью','пьёшь','пьёт','пьёт','пьём','пьют'], pm:'пил', pf:'пила', pp:'пили' },
+    o:[['','' ],['coffee','кофе'],['tea','чай'],['water','воду']] },
+
+  { en:'buy', p2:'bought', p3:'bought', L:4,
+    ru:{ inf:'покупать', pres:['покупаю','покупаешь','покупает','покупает','покупаем','покупают'], pm:'покупал', pf:'покупала', pp:'покупали' },
+    o:[['','' ],['bread','хлеб'],['a car','машину'],['this','это']] },
+
+  { en:'understand', p2:'understood', p3:'understood', L:2,
+    ru:{ inf:'понимать', pres:['понимаю','понимаешь','понимает','понимает','понимаем','понимают'], pm:'понимал', pf:'понимала', pp:'понимали' },
+    o:[['','' ],['English','английский'],['this','это'],['him','его'],['me','меня']] },
+
+  { en:'meet', p2:'met', p3:'met', L:5,
+    ru:{ inf:'встречать', pres:['встречаю','встречаешь','встречает','встречает','встречаем','встречают'], pm:'встречал', pf:'встречала', pp:'встречали' },
+    o:[['','' ],['him','его'],['her','её'],['my friend','моего друга']] },
+
+  { en:'sleep', p2:'slept', p3:'slept', L:5,
+    ru:{ inf:'спать', pres:['сплю','спишь','спит','спит','спим','спят'], pm:'спал', pf:'спала', pp:'спали' },
+    o:[['','' ],['well','хорошо'],['at home','дома'],['a lot','много']] },
+
+  { en:'tell', p2:'told', p3:'told', L:5,
+    ru:{ inf:'рассказывать', pres:['рассказываю','рассказываешь','рассказывает','рассказывает','рассказываем','рассказывают'], pm:'рассказывал', pf:'рассказывала', pp:'рассказывали' },
+    o:[['','' ],['a story','историю'],['the truth','правду'],['everything','всё']] },
+
+  { en:'feel', p2:'felt', p3:'felt', L:6,
+    ru:{ inf:'чувствовать', pres:['чувствую','чувствуешь','чувствует','чувствует','чувствуем','чувствуют'], pm:'чувствовал', pf:'чувствовала', pp:'чувствовали' },
+    o:[['','' ],['this','это'],['nothing','ничего']] },
+
+  { en:'leave', p2:'left', p3:'left', L:6,
+    ru:{ inf:'уезжать', pres:['уезжаю','уезжаешь','уезжает','уезжает','уезжаем','уезжают'], pm:'уезжал', pf:'уезжала', pp:'уезжали' },
+    o:[['','' ],['tomorrow','завтра'],['early','рано'],['today','сегодня']] },
+
+  { en:'put', p2:'put', p3:'put', L:6,
+    ru:{ inf:'класть', pres:['кладу','кладёшь','кладёт','кладёт','кладём','кладут'], pm:'клал', pf:'клала', pp:'клали' },
+    o:[['','' ],['it here','это сюда'],['the book here','книгу сюда']] },
+
+  { en:'sit', p2:'sat', p3:'sat', L:6,
+    ru:{ inf:'сидеть', pres:['сижу','сидишь','сидит','сидит','сидим','сидят'], pm:'сидел', pf:'сидела', pp:'сидели' },
+    o:[['','' ],['here','здесь'],['at home','дома'],['there','там']] },
+
+  { en:'stand', p2:'stood', p3:'stood', L:7,
+    ru:{ inf:'стоять', pres:['стою','стоишь','стоит','стоит','стоим','стоят'], pm:'стоял', pf:'стояла', pp:'стояли' },
+    o:[['','' ],['here','здесь'],['there','там']] },
+
+  { en:'run', p2:'ran', p3:'run', L:7,
+    ru:{ inf:'бегать', pres:['бегаю','бегаешь','бегает','бегает','бегаем','бегают'], pm:'бегал', pf:'бегала', pp:'бегали' },
+    o:[['','' ],['fast','быстро'],['every day','каждый день'],['in the park','в парке']] },
+
+  { en:'play', p2:null, p3:null, L:3,
+    ru:{ inf:'играть', pres:['играю','играешь','играет','играет','играем','играют'], pm:'играл', pf:'играла', pp:'играли' },
+    o:[['','' ],['football','в футбол'],['the guitar','на гитаре'],['with him','с ним']] },
+
+  { en:'watch', p2:null, p3:null, L:2,
+    ru:{ inf:'смотреть', pres:['смотрю','смотришь','смотрит','смотрит','смотрим','смотрят'], pm:'смотрел', pf:'смотрела', pp:'смотрели' },
+    o:[['','' ],['TV','телевизор'],['this film','этот фильм'],['football','футбол']] },
+
+  { en:'listen', p2:null, p3:null, L:2,
+    ru:{ inf:'слушать', pres:['слушаю','слушаешь','слушает','слушает','слушаем','слушают'], pm:'слушал', pf:'слушала', pp:'слушали' },
+    o:[['','' ],['music','музыку'],['to music','музыку'],['to me','меня']] },
+
+  { en:'ask', p2:null, p3:null, L:3,
+    ru:{ inf:'спрашивать', pres:['спрашиваю','спрашиваешь','спрашивает','спрашивает','спрашиваем','спрашивают'], pm:'спрашивал', pf:'спрашивала', pp:'спрашивали' },
+    o:[['','' ],['him','его'],['her','её'],['a question','вопрос']] },
+
+  { en:'answer', p2:null, p3:null, L:3,
+    ru:{ inf:'отвечать', pres:['отвечаю','отвечаешь','отвечает','отвечает','отвечаем','отвечают'], pm:'отвечал', pf:'отвечала', pp:'отвечали' },
+    o:[['','' ],['the question','на вопрос'],['fast','быстро']] },
+
+  { en:'call', p2:null, p3:null, L:4,
+    ru:{ inf:'звонить', pres:['звоню','звонишь','звонит','звонит','звоним','звонят'], pm:'звонил', pf:'звонила', pp:'звонили' },
+    o:[['','' ],['him','ему'],['her','ей'],['me','мне'],['every day','каждый день']] },
+
+  { en:'start', p2:null, p3:null, L:4,
+    ru:{ inf:'начинать', pres:['начинаю','начинаешь','начинает','начинает','начинаем','начинают'], pm:'начинал', pf:'начинала', pp:'начинали' },
+    o:[['','' ],['early','рано'],['now','сейчас'],['tomorrow','завтра']] },
+
+  { en:'finish', p2:null, p3:null, L:4,
+    ru:{ inf:'заканчивать', pres:['заканчиваю','заканчиваешь','заканчивает','заканчивает','заканчиваем','заканчивают'], pm:'заканчивал', pf:'заканчивала', pp:'заканчивали' },
+    o:[['','' ],['this','это'],['my work','мою работу'],['late','поздно']] },
+
+  { en:'learn', p2:null, p3:null, L:1,
+    ru:{ inf:'учить', pres:['учу','учишь','учит','учит','учим','учат'], pm:'учил', pf:'учила', pp:'учили' },
+    o:[['','' ],['English','английский'],['new words','новые слова']] },
+
+  { en:'study', p2:null, p3:null, L:5,
+    ru:{ inf:'изучать', pres:['изучаю','изучаешь','изучает','изучает','изучаем','изучают'], pm:'изучал', pf:'изучала', pp:'изучали' },
+    o:[['','' ],['English','английский'],['this','это']] },
+
+  { en:'use', p2:null, p3:null, L:5,
+    ru:{ inf:'использовать', pres:['использую','используешь','использует','использует','используем','используют'], pm:'использовал', pf:'использовала', pp:'использовали' },
+    o:[['','' ],['this','это'],['a computer','компьютер']] },
+
+  { en:'travel', p2:null, p3:null, L:5,
+    ru:{ inf:'путешествовать', pres:['путешествую','путешествуешь','путешествует','путешествует','путешествуем','путешествуют'], pm:'путешествовал', pf:'путешествовала', pp:'путешествовали' },
+    o:[['','' ],['a lot','много'],['every year','каждый год']] },
+
+  { en:'remember', p2:null, p3:null, L:6,
+    ru:{ inf:'помнить', pres:['помню','помнишь','помнит','помнит','помним','помнят'], pm:'помнил', pf:'помнила', pp:'помнили' },
+    o:[['','' ],['this','это'],['him','его'],['your name','твоё имя']] },
+
+  { en:'wait', p2:null, p3:null, L:6,
+    ru:{ inf:'ждать', pres:['жду','ждёшь','ждёт','ждёт','ждём','ждут'], pm:'ждал', pf:'ждала', pp:'ждали' },
+    o:[['','' ],['here','здесь'],['for him','его'],['for you','тебя']] },
+
+  { en:'cook', p2:null, p3:null, L:7,
+    ru:{ inf:'готовить', pres:['готовлю','готовишь','готовит','готовит','готовим','готовят'], pm:'готовил', pf:'готовила', pp:'готовили' },
+    o:[['','' ],['dinner','ужин'],['fish','рыбу'],['well','хорошо']] },
+
+  { en:'drive', p2:'drove', p3:'driven', L:7,
+    ru:{ inf:'водить', pres:['вожу','водишь','водит','водит','водим','водят'], pm:'водил', pf:'водила', pp:'водили' },
+    o:[['','' ],['a car','машину'],['fast','быстро'],['well','хорошо']] },
+
+  { en:'pay', p2:'paid', p3:'paid', L:7,
+    ru:{ inf:'платить', pres:['плачу','платишь','платит','платит','платим','платят'], pm:'платил', pf:'платила', pp:'платили' },
+    o:[['','' ],['for this','за это'],['a lot','много'],['now','сейчас']] },
+
+  { en:'send', p2:'sent', p3:'sent', L:8,
+    ru:{ inf:'отправлять', pres:['отправляю','отправляешь','отправляет','отправляет','отправляем','отправляют'], pm:'отправлял', pf:'отправляла', pp:'отправляли' },
+    o:[['','' ],['a letter','письмо'],['money','деньги'],['this to him','это ему']] },
+
+  { en:'sing', p2:'sang', p3:'sung', L:8,
+    ru:{ inf:'петь', pres:['пою','поёшь','поёт','поёт','поём','поют'], pm:'пел', pf:'пела', pp:'пели' },
+    o:[['','' ],['well','хорошо'],['a song','песню']] },
+
+  { en:'teach', p2:'taught', p3:'taught', L:8,
+    ru:{ inf:'преподавать', pres:['преподаю','преподаёшь','преподаёт','преподаёт','преподаём','преподают'], pm:'преподавал', pf:'преподавала', pp:'преподавали' },
+    o:[['','' ],['English','английский'],['at school','в школе']] }
+];
+
+/* Времена и формы базовой таблицы */
+const TENSES = [
+  { id: 'pres', ru: 'настоящее' },
+  { id: 'past', ru: 'прошедшее' },
+  { id: 'fut',  ru: 'будущее'   }
+];
+
+const FORMS = [
+  { id: 'aff', ru: 'утверждение' },
+  { id: 'neg', ru: 'отрицание'   },
+  { id: 'que', ru: 'вопрос'      }
+];
+
+/* Слова для «мешка» отвлекающих плиток */
+const DISTRACTORS = ['do', 'does', 'did', 'will', 'not', "don't", "doesn't", "didn't",
+  "won't", 'am', 'is', 'are', 'was', 'were', 'be', 'have', 'has', 'had', 'been',
+  'can', 'must', 'should', 'to'];
+
+/* ============================================================
+   ПОЛИГЛОТ · Курс из 16 уроков
+   Структура следует телекурсу Д. Петрова «Полиглот. Английский
+   за 16 часов» и его же базовой таблице глагола.
+
+   Каждый урок:
+     n        — номер
+     title    — название
+     goal     — что человек сможет делать после урока
+     theory   — HTML-конспект
+     vocab    — [[english, русский], ...]  → идёт в карточки SRS
+     drill    — конфиг тренажёра фраз
+     ============================================================ */
+
+const COURSE = [
+
+/* ---------------------------------------------------------- 1 */
+{
+  n: 1,
+  title: 'Базовая таблица глагола',
+  goal: 'Строить любое простое предложение действия в трёх временах и трёх формах.',
+  theory: `
+<p class="lead">Это <b>самый главный урок курса</b>. Петров говорит: «Освоил базовую таблицу — считай, освоил половину языка».</p>
+
+<h3>Идея</h3>
+<p>Любое высказывание о действии находится на пересечении двух осей:</p>
+<ul>
+  <li><b>Время</b> — настоящее / прошедшее / будущее</li>
+  <li><b>Форма</b> — утверждение / отрицание / вопрос</li>
+</ul>
+<p>3 × 3 = <b>9 клеток</b>. Всё. Больше в простой речи ничего нет.</p>
+
+<div class="table-wrap"><table class="petrov">
+<tr><th></th><th>Утверждение</th><th>Отрицание</th><th>Вопрос</th></tr>
+<tr><th>Настоящее</th><td>I work<br><span class="dim">he work<b>s</b></span></td><td>I <b>don't</b> work<br><span class="dim">he <b>doesn't</b> work</span></td><td><b>do</b> I work?<br><span class="dim"><b>does</b> he work?</span></td></tr>
+<tr><th>Прошедшее</th><td>I work<b>ed</b><br><span class="dim">2-я форма</span></td><td>I <b>didn't</b> work</td><td><b>did</b> I work?</td></tr>
+<tr><th>Будущее</th><td>I <b>will</b> work</td><td>I <b>won't</b> work</td><td><b>will</b> I work?</td></tr>
+</table></div>
+
+<h3>Что нужно запомнить</h3>
+<ul>
+  <li>Порядок слов в утверждении жёсткий: <b>кто → что делает → остальное</b>.</li>
+  <li>В вопросе вспомогательный глагол выходит вперёд: <b>do / did / will</b> + кто + глагол.</li>
+  <li>После <b>do, does, did, will</b> глагол всегда стоит в <b>базовой форме</b>. Никаких -s и -ed.</li>
+  <li><b>-s</b> появляется только в одной клетке: настоящее + утверждение + <i>he / she</i>.</li>
+  <li>У неправильных глаголов «сломана» тоже только одна клетка: прошедшее + утверждение (<i>see → saw</i>).</li>
+</ul>
+
+<h3>Местоимения</h3>
+<p>I — я, you — ты/вы, he — он, she — она, we — мы, they — они.</p>
+<p class="note">Петров: слово <b>it</b> — это не «оно», а «это». Рода в английском нет.</p>
+
+<h3>Правильные и неправильные</h3>
+<p>Правильный глагол в прошедшем просто получает <b>-ed</b>: work → worked, love → loved.</p>
+<p>Неправильный имеет свою вторую форму, и она нужна <b>только в одном месте из девяти</b>:</p>
+<p class="mono">see (saw) · come (came) · go (went) · know (knew)</p>
+<p>Во всех остальных клетках — обычная базовая форма: <i>I didn't see</i>, <i>did you see?</i>, <i>he will see</i>.</p>
+
+<h3>Как тренироваться</h3>
+<p>Берёте глагол и «прокручиваете» его по всем девяти клеткам. Занимает 20–30 секунд. Потом берёте следующий. Цель — довести до автоматизма, чтобы форма выскакивала без раздумий.</p>
+`,
+  vocab: [
+    ['love','любить'],['live','жить'],['work','работать'],['open','открывать'],
+    ['close','закрывать'],['see (saw)','видеть'],['come (came)','приходить'],
+    ['go (went)','идти, ходить'],['know (knew)','знать'],['do (did)','делать'],
+    ['speak (spoke)','разговаривать'],['learn','учить'],
+    ['I','я'],['you','ты, вы'],['he','он'],['she','она'],['we','мы'],['they','они'],
+    ['it','это'],['not','не'],['and','и'],['yes','да'],['no','нет'],['here','здесь'],
+    ['there','там'],['now','сейчас'],['today','сегодня'],['home','дом, домой']
+  ],
+  drill: { modes:['base'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:1 }
+},
+
+/* ---------------------------------------------------------- 2 */
+{
+  n: 2,
+  title: 'Местоимения, вопросительные слова, связки',
+  goal: 'Задавать вопросы «кто? что? где? когда? почему?» и связывать предложения.',
+  theory: `
+<h3>Объектные местоимения</h3>
+<p>Если местоимение стоит <b>после</b> глагола (кого? кому?), оно меняет форму:</p>
+<div class="table-wrap"><table class="pairs">
+<tr><td>I → <b>me</b></td><td>меня, мне</td></tr>
+<tr><td>you → <b>you</b></td><td>тебя, тебе</td></tr>
+<tr><td>he → <b>him</b></td><td>его, ему</td></tr>
+<tr><td>she → <b>her</b></td><td>её, ей</td></tr>
+<tr><td>we → <b>us</b></td><td>нас, нам</td></tr>
+<tr><td>they → <b>them</b></td><td>их, им</td></tr>
+</table></div>
+<p class="mono">I know him. · He doesn't know me. · Did you see them?</p>
+
+<h3>Вопросительные слова</h3>
+<p>Ставятся <b>перед</b> всей конструкцией. Дальше — обычный вопрос из таблицы.</p>
+<div class="table-wrap"><table class="pairs">
+<tr><td><b>what</b></td><td>что, какой</td></tr>
+<tr><td><b>who</b></td><td>кто</td></tr>
+<tr><td><b>where</b></td><td>где, куда</td></tr>
+<tr><td><b>when</b></td><td>когда</td></tr>
+<tr><td><b>why</b></td><td>почему</td></tr>
+<tr><td><b>how</b></td><td>как</td></tr>
+<tr><td><b>which</b></td><td>который</td></tr>
+<tr><td><b>how much / how many</b></td><td>сколько</td></tr>
+</table></div>
+<p class="mono">Where do you live? · What did he say? · Why won't you come?</p>
+
+<h3>+50 000 слов бесплатно</h3>
+<p>Русские слова на <b>-ция / -сия</b> почти всегда превращаются в английские на <b>-tion / -sion</b>:</p>
+<p class="mono">информация → information · ситуация → situation · революция → revolution · дискуссия → discussion</p>
+<p>Ударение при этом падает на слог перед -tion.</p>
+
+<h3>Слова-связки</h3>
+<p class="mono">and — и · but — но · or — или · because — потому что · so — поэтому · if — если · that — что · also — тоже · then — потом</p>
+`,
+  vocab: [
+    ['me','меня, мне'],['him','его, ему'],['her','её, ей'],['us','нас, нам'],['them','их, им'],
+    ['what','что'],['who','кто'],['where','где, куда'],['when','когда'],['why','почему'],
+    ['how','как'],['which','который'],['and','и'],['but','но'],['or','или'],
+    ['because','потому что'],['so','поэтому'],['if','если'],['that','что, тот'],
+    ['also','тоже'],['then','потом'],['read','читать'],['write (wrote)','писать'],
+    ['think (thought)','думать'],['eat (ate)','есть'],['drink (drank)','пить'],
+    ['watch','смотреть'],['listen','слушать'],['understand (understood)','понимать'],
+    ['help','помогать'],['say (said)','говорить, сказать']
+  ],
+  drill: { modes:['base'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:2 }
+},
+
+/* ---------------------------------------------------------- 3 */
+{
+  n: 3,
+  title: 'Глагол to be — предложения состояния',
+  goal: 'Говорить кто ты, какой ты и где ты. Это вторая половина языка.',
+  theory: `
+<p class="lead">Есть предложения <b>действия</b> (урок 1) и предложения <b>состояния</b>. У состояния своя таблица — и она проще.</p>
+
+<h3>Формы to be</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>I <b>am</b></td><td>я есть</td></tr>
+<tr><td>you / we / they <b>are</b></td><td>ты / мы / они есть</td></tr>
+<tr><td>he / she / it <b>is</b></td><td>он / она есть</td></tr>
+</table></div>
+<p>Прошедшее: <b>was</b> (I, he, she) · <b>were</b> (you, we, they). Будущее: <b>will be</b> — для всех.</p>
+
+<h3>Таблица состояния</h3>
+<div class="table-wrap"><table class="petrov">
+<tr><th></th><th>Утверждение</th><th>Отрицание</th><th>Вопрос</th></tr>
+<tr><th>Настоящее</th><td>I <b>am</b> here</td><td>I <b>am not</b> here</td><td><b>am</b> I here?</td></tr>
+<tr><th>Прошедшее</th><td>I <b>was</b> here</td><td>I <b>was not</b> here</td><td><b>was</b> I here?</td></tr>
+<tr><th>Будущее</th><td>I <b>will be</b> here</td><td>I <b>will not be</b> here</td><td><b>will</b> I <b>be</b> here?</td></tr>
+</table></div>
+<p class="note">Главное отличие: здесь <b>не нужны</b> do / does / did. Сам to be выходит вперёд в вопросе и берёт not в отрицании.</p>
+
+<h3>Русский пропускает «есть» — английский нет</h3>
+<p>«Я дома» → нельзя <span class="bad">I home</span>. Только <b>I am home</b>.<br>
+«Она врач» → <b>She is a doctor</b>.<br>
+«Мы были заняты» → <b>We were busy</b>.</p>
+
+<h3>Сокращения (так говорят всегда)</h3>
+<p class="mono">I'm · you're · he's · she's · we're · they're · isn't · aren't · wasn't · weren't</p>
+
+<h3>Два нужных глагола</h3>
+<p><b>like</b> — нравиться, любить (что-то). <i>I like coffee. Do you like it?</i><br>
+<b>want</b> — хотеть. <i>I want to go home.</i> После want идёт <b>to</b> + глагол.</p>
+`,
+  vocab: [
+    ['am / is / are','есть (наст.)'],['was / were','был, была, были'],['will be','буду, будет'],
+    ['like','нравиться'],['want','хотеть'],['have (had)','иметь'],['make (made)','создавать, делать'],
+    ['take (took)','брать'],['give (gave)','давать'],['play','играть'],['ask','спрашивать'],
+    ['answer','отвечать'],['good','хороший'],['bad','плохой'],['big','большой'],['small','маленький'],
+    ['new','новый'],['old','старый'],['happy','счастливый'],['tired','уставший'],['busy','занятый'],
+    ['ready','готовый'],['free','свободный'],['sure','уверенный'],['right','правильный'],
+    ['wrong','неправильный'],['in','в'],['on','на'],['at','у, в'],['with','с'],['without','без']
+  ],
+  drill: { modes:['base','tobe'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:3 }
+},
+
+/* ---------------------------------------------------------- 4 */
+{
+  n: 4,
+  title: 'Притяжательные местоимения. Семья',
+  goal: 'Рассказать, чьё это и кто твои близкие.',
+  theory: `
+<h3>Чей?</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td><b>my</b></td><td>мой, моя, моё, мои</td></tr>
+<tr><td><b>your</b></td><td>твой, ваш</td></tr>
+<tr><td><b>his</b></td><td>его</td></tr>
+<tr><td><b>her</b></td><td>её</td></tr>
+<tr><td><b>our</b></td><td>наш</td></tr>
+<tr><td><b>their</b></td><td>их</td></tr>
+<tr><td><b>its</b></td><td>его (о предмете)</td></tr>
+</table></div>
+<p class="note">Рода нет: <b>my</b> подходит и к «мой дом», и к «моя жена», и к «мои дети».</p>
+
+<h3>Притяжательный 's</h3>
+<p>Чтобы сказать «дом Азамата» — не нужен предлог. Хозяин ставится вперёд и получает <b>'s</b>:</p>
+<p class="mono">Azamat's house · my wife's name · the doctor's question</p>
+<p>Если хозяев много и слово уже кончается на -s, ставится только апостроф: <i>my parents' house</i>.</p>
+
+<h3>Артикли — коротко</h3>
+<p><b>a / an</b> — «какой-то один, неизвестный». <i>a doctor, an engineer</i> (an — перед гласным звуком).<br>
+<b>the</b> — «тот самый, о котором мы уже знаем». <i>Close the door.</i><br>
+С именами, языками и общими понятиями артикль не ставится: <i>I speak English.</i></p>
+
+<h3>Have / have got</h3>
+<p>«У меня есть» → <b>I have</b> (he/she — <b>has</b>).</p>
+<p class="mono">I have a car. · She has two children. · Do you have time? · I don't have money.</p>
+`,
+  vocab: [
+    ['my','мой'],['your','твой, ваш'],['his','его'],['her','её'],['our','наш'],['their','их'],
+    ['family','семья'],['wife','жена'],['husband','муж'],['son','сын'],['daughter','дочь'],
+    ['child / children','ребёнок / дети'],['mother','мать'],['father','отец'],['parents','родители'],
+    ['brother','брат'],['sister','сестра'],['friend','друг'],['name','имя'],['house','дом'],
+    ['home','дом (родной)'],['city','город'],['country','страна'],['car','машина'],
+    ['find (found)','находить'],['get (got)','получать'],['buy (bought)','покупать'],
+    ['call','звонить'],['start','начинать'],['finish','заканчивать']
+  ],
+  drill: { modes:['base','tobe'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:4 }
+},
+
+/* ---------------------------------------------------------- 5 */
+{
+  n: 5,
+  title: 'Профессии. Этикет. Рассказ о себе',
+  goal: 'Представиться, рассказать о работе, вежливо начать и закончить разговор.',
+  theory: `
+<h3>Рассказ о себе — каркас</h3>
+<p>Это ваш личный текст. Выучите его один раз и подставляйте свои слова.</p>
+<blockquote class="mono">
+My name is Azamat.<br>
+I am from Kazakhstan. I live in Almaty.<br>
+I am a businessman. I work in my own company.<br>
+I have a wife and two children.<br>
+I like travelling and reading.<br>
+I am learning English because I want to speak with people from other countries.
+</blockquote>
+
+<h3>Профессии</h3>
+<p class="mono">doctor · teacher · engineer · driver · manager · lawyer · builder · student · businessman · programmer · seller · cook</p>
+<p>Перед профессией нужен артикль: <b>I am a doctor</b> (не «I am doctor»).</p>
+
+<h3>Этикет</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>Hello · Hi</td><td>Здравствуйте · Привет</td></tr>
+<tr><td>Good morning / afternoon / evening</td><td>Доброе утро / день / вечер</td></tr>
+<tr><td>How are you?</td><td>Как дела?</td></tr>
+<tr><td>I'm fine, thank you. And you?</td><td>Хорошо, спасибо. А вы?</td></tr>
+<tr><td>Nice to meet you.</td><td>Приятно познакомиться.</td></tr>
+<tr><td>Excuse me · Sorry</td><td>Извините (обратиться) · Простите (виноват)</td></tr>
+<tr><td>Please · Thank you · You're welcome</td><td>Пожалуйста · Спасибо · Не за что</td></tr>
+<tr><td>See you later · Goodbye</td><td>До встречи · До свидания</td></tr>
+</table></div>
+<p class="note">Вежливость в английском держится на трёх словах: <b>please</b>, <b>sorry</b>, <b>thank you</b>. Их много не бывает.</p>
+`,
+  vocab: [
+    ['doctor','врач'],['teacher','учитель'],['engineer','инженер'],['driver','водитель'],
+    ['manager','менеджер'],['lawyer','юрист'],['student','студент'],['businessman','бизнесмен'],
+    ['job','работа (место)'],['company','компания'],['money','деньги'],['office','офис'],
+    ['hello','здравствуйте'],['goodbye','до свидания'],['please','пожалуйста'],
+    ['thank you','спасибо'],['sorry','извините'],['excuse me','простите'],
+    ['nice to meet you','приятно познакомиться'],['how are you?','как дела?'],
+    ['meet (met)','встречать'],['sleep (slept)','спать'],['tell (told)','рассказывать'],
+    ['study','изучать'],['use','использовать'],['travel','путешествовать'],
+    ['from','из, от'],['about','о, об'],['for','для'],['very','очень']
+  ],
+  drill: { modes:['base','tobe'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:5 }
+},
+
+/* ---------------------------------------------------------- 6 */
+{
+  n: 6,
+  title: 'Прилагательные и сравнение',
+  goal: 'Сравнивать: больше, лучше, самый интересный.',
+  theory: `
+<h3>Три ступени</h3>
+<p><b>Короткие слова</b> (1–2 слога) получают окончания:</p>
+<p class="mono">big → big<b>ger</b> → the big<b>gest</b><br>
+old → old<b>er</b> → the old<b>est</b><br>
+easy → eas<b>ier</b> → the eas<b>iest</b></p>
+
+<p><b>Длинные слова</b> (3+ слога) берут more / the most:</p>
+<p class="mono">interesting → <b>more</b> interesting → <b>the most</b> interesting<br>
+beautiful → <b>more</b> beautiful → <b>the most</b> beautiful</p>
+
+<h3>Исключения — выучить наизусть</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>good → <b>better</b> → the <b>best</b></td><td>хороший → лучше → лучший</td></tr>
+<tr><td>bad → <b>worse</b> → the <b>worst</b></td><td>плохой → хуже → худший</td></tr>
+<tr><td>much/many → <b>more</b> → the <b>most</b></td><td>много → больше → больше всего</td></tr>
+<tr><td>little → <b>less</b> → the <b>least</b></td><td>мало → меньше → меньше всего</td></tr>
+<tr><td>far → <b>further</b> → the <b>furthest</b></td><td>далеко → дальше → самый дальний</td></tr>
+</table></div>
+
+<h3>Чем? — than</h3>
+<p class="mono">This car is <b>better than</b> that one.<br>
+He speaks English <b>better than</b> me.<br>
+Moscow is <b>bigger than</b> Almaty.</p>
+
+<h3>Одинаковые — as ... as</h3>
+<p class="mono">She is <b>as</b> tall <b>as</b> her sister. — Она такая же высокая, как сестра.<br>
+It is <b>not as</b> easy <b>as</b> you think. — Это не так просто, как ты думаешь.</p>
+
+<h3>Указательные</h3>
+<p><b>this</b> (этот) → <b>these</b> (эти) · <b>that</b> (тот) → <b>those</b> (те)</p>
+`,
+  vocab: [
+    ['better','лучше'],['worse','хуже'],['more','больше'],['less','меньше'],['than','чем'],
+    ['this / these','этот / эти'],['that / those','тот / те'],['same','такой же'],
+    ['different','другой'],['easy','лёгкий'],['difficult','трудный'],['important','важный'],
+    ['interesting','интересный'],['beautiful','красивый'],['expensive','дорогой'],['cheap','дешёвый'],
+    ['fast','быстрый'],['slow','медленный'],['strong','сильный'],['long','длинный'],['short','короткий'],
+    ['high','высокий'],['low','низкий'],['feel (felt)','чувствовать'],['leave (left)','уезжать'],
+    ['put','класть'],['sit (sat)','сидеть'],['remember','помнить'],['wait','ждать']
+  ],
+  drill: { modes:['base','tobe'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:6 }
+},
+
+/* ---------------------------------------------------------- 7 */
+{
+  n: 7,
+  title: 'Слова-параметры. Much / many. Числа',
+  goal: 'Говорить «сколько»: много, мало, немного, слишком, достаточно.',
+  theory: `
+<h3>Считаемое и несчитаемое</h3>
+<p>Английский делит существительные на то, что можно посчитать, и то, что нельзя.</p>
+<div class="table-wrap"><table class="pairs">
+<tr><td><b>many</b> books</td><td>много книг (счётное)</td></tr>
+<tr><td><b>much</b> water</td><td>много воды (несчётное)</td></tr>
+<tr><td><b>a lot of</b> books / water</td><td>много (универсально, в утверждении)</td></tr>
+<tr><td><b>a few</b> books</td><td>несколько книг</td></tr>
+<tr><td><b>a little</b> water</td><td>немного воды</td></tr>
+<tr><td><b>few</b> / <b>little</b></td><td>мало (и это плохо)</td></tr>
+</table></div>
+<p class="note">Практика: в утверждении почти всегда говорят <b>a lot of</b>. Much и many живут в вопросах и отрицаниях: <i>How much? Not many.</i></p>
+
+<h3>Усилители</h3>
+<p class="mono">very — очень · too — слишком · enough — достаточно (ставится ПОСЛЕ слова: <i>good enough</i>) · quite — довольно · almost — почти · only — только</p>
+
+<h3>Числа</h3>
+<p class="mono">1 one · 2 two · 3 three · 4 four · 5 five · 6 six · 7 seven · 8 eight · 9 nine · 10 ten</p>
+<p class="mono">11 eleven · 12 twelve · 13 thirteen · … · 19 nineteen<br>
+20 twenty · 30 thirty · 40 forty · 50 fifty · 60 sixty · 70 seventy · 80 eighty · 90 ninety<br>
+100 a hundred · 1000 a thousand · 1 000 000 a million</p>
+<p>Составные — через дефис: <b>twenty-one</b>, <b>forty-five</b>. Сотни: <b>two hundred and thirty</b>.</p>
+
+<h3>Порядковые</h3>
+<p class="mono">first · second · third · fourth · fifth · … · tenth · twentieth</p>
+`,
+  vocab: [
+    ['much','много (несчёт.)'],['many','много (счёт.)'],['a lot of','много'],['a few','несколько'],
+    ['a little','немного'],['enough','достаточно'],['too','слишком'],['very','очень'],
+    ['only','только'],['almost','почти'],['all','всё, все'],['some','некоторый, немного'],
+    ['any','любой, какой-нибудь'],['every','каждый'],['nothing','ничего'],['something','что-то'],
+    ['everything','всё'],['nobody','никто'],['somebody','кто-то'],['everybody','все'],
+    ['one','один'],['two','два'],['three','три'],['ten','десять'],['hundred','сто'],
+    ['thousand','тысяча'],['first','первый'],['second','второй'],['stand (stood)','стоять'],
+    ['run (ran)','бегать'],['cook','готовить'],['drive (drove)','водить'],['pay (paid)','платить']
+  ],
+  drill: { modes:['base','tobe'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:7 }
+},
+
+/* ---------------------------------------------------------- 8 */
+{
+  n: 8,
+  title: 'Время: предлоги и параметры',
+  goal: 'Назначать встречи: когда, во сколько, какого числа.',
+  theory: `
+<h3>Три предлога времени</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td><b>at</b></td><td>точка: at 5 o'clock, at night, at the weekend</td></tr>
+<tr><td><b>on</b></td><td>день: on Monday, on the 5th of May, on my birthday</td></tr>
+<tr><td><b>in</b></td><td>период: in May, in 2026, in the morning, in two hours</td></tr>
+</table></div>
+<p class="note">Мнемоника: <b>at</b> — точка, <b>on</b> — день (на календаре), <b>in</b> — внутри большого отрезка.</p>
+<p>Без предлога: <b>today, tomorrow, yesterday, this week, next year, every day</b>.</p>
+
+<h3>Дни недели</h3>
+<p class="mono">Monday · Tuesday · Wednesday · Thursday · Friday · Saturday · Sunday</p>
+
+<h3>Месяцы</h3>
+<p class="mono">January · February · March · April · May · June<br>
+July · August · September · October · November · December</p>
+
+<h3>Который час</h3>
+<p class="mono">What time is it? — It's five o'clock. (ровно)<br>
+It's half past five. — половина шестого<br>
+It's a quarter to six. — без пятнадцати шесть<br>
+It's ten past five. — десять минут шестого</p>
+<p>В жизни чаще говорят просто цифрами: <b>five thirty</b>, <b>nine fifteen</b>.</p>
+
+<h3>Слова-периоды</h3>
+<p class="mono">now · then · soon · already · still · yet · always · usually · often · sometimes · never · again</p>
+`,
+  vocab: [
+    ['time','время'],['day','день'],['week','неделя'],['month','месяц'],['year','год'],
+    ['hour','час'],['minute','минута'],['morning','утро'],['evening','вечер'],['night','ночь'],
+    ['today','сегодня'],['tomorrow','завтра'],['yesterday','вчера'],['always','всегда'],
+    ['usually','обычно'],['often','часто'],['sometimes','иногда'],['never','никогда'],
+    ['already','уже'],['still','всё ещё'],['yet','ещё (в вопросах)'],['soon','скоро'],
+    ['again','снова'],['Monday','понедельник'],['Friday','пятница'],['Saturday','суббота'],
+    ['Sunday','воскресенье'],['send (sent)','отправлять'],['sing (sang)','петь'],
+    ['teach (taught)','преподавать']
+  ],
+  drill: { modes:['base','tobe'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:8 }
+},
+
+/* ---------------------------------------------------------- 9 */
+{
+  n: 9,
+  title: 'There is / There are',
+  goal: 'Описывать, что где находится и что вообще существует.',
+  theory: `
+<h3>Конструкция наличия</h3>
+<p>Русское «есть / имеется / находится» без хозяина переводится через <b>there is / there are</b>. Дословно — «там есть».</p>
+<p class="mono">There <b>is</b> a book on the table. — На столе (есть) книга.<br>
+There <b>are</b> two rooms in my flat. — В моей квартире две комнаты.</p>
+<p><b>is</b> — если предмет один, <b>are</b> — если много.</p>
+
+<h3>Все девять клеток</h3>
+<div class="table-wrap"><table class="petrov">
+<tr><th></th><th>Утверждение</th><th>Отрицание</th><th>Вопрос</th></tr>
+<tr><th>Настоящее</th><td>there is / are</td><td>there is <b>not</b></td><td><b>is</b> there?</td></tr>
+<tr><th>Прошедшее</th><td>there was / were</td><td>there was <b>not</b></td><td><b>was</b> there?</td></tr>
+<tr><th>Будущее</th><td>there <b>will be</b></td><td>there <b>will not be</b></td><td><b>will</b> there <b>be</b>?</td></tr>
+</table></div>
+
+<h3>Не путать с have</h3>
+<p>Если есть <b>хозяин</b> — используем have: <i>I have a car.</i><br>
+Если хозяина нет, есть только <b>место</b> — there is: <i>There is a car near the house.</i></p>
+
+<h3>Полезные обороты</h3>
+<p class="mono">Is there a problem? — Есть проблема?<br>
+There is nothing here. — Здесь ничего нет.<br>
+There were a lot of people. — Было много людей.<br>
+There will be a meeting tomorrow. — Завтра будет встреча.</p>
+`,
+  vocab: [
+    ['there is','есть, находится'],['there are','есть (мн.ч.)'],['room','комната'],
+    ['table','стол'],['chair','стул'],['door','дверь'],['window','окно'],['wall','стена'],
+    ['floor','пол, этаж'],['street','улица'],['shop','магазин'],['restaurant','ресторан'],
+    ['hotel','отель'],['airport','аэропорт'],['station','вокзал'],['bank','банк'],
+    ['hospital','больница'],['school','школа'],['park','парк'],['problem','проблема'],
+    ['question','вопрос'],['answer','ответ'],['reason','причина'],['place','место'],
+    ['people','люди'],['man / men','мужчина / мужчины'],['woman / women','женщина / женщины'],
+    ['thing','вещь'],['water','вода'],['food','еда']
+  ],
+  drill: { modes:['base','tobe','there'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:9 }
+},
+
+/* ---------------------------------------------------------- 10 */
+{
+  n: 10,
+  title: 'Предлоги места и направления. Послелоги',
+  goal: 'Объяснить дорогу и сказать, где что лежит.',
+  theory: `
+<h3>Где? (место)</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td><b>in</b></td><td>в (внутри): in the room, in Moscow</td></tr>
+<tr><td><b>on</b></td><td>на (поверхности): on the table</td></tr>
+<tr><td><b>at</b></td><td>у, при (точка): at home, at work, at the door</td></tr>
+<tr><td><b>under</b></td><td>под</td></tr>
+<tr><td><b>over / above</b></td><td>над</td></tr>
+<tr><td><b>near / next to</b></td><td>рядом с</td></tr>
+<tr><td><b>between</b></td><td>между</td></tr>
+<tr><td><b>behind</b></td><td>за, позади</td></tr>
+<tr><td><b>in front of</b></td><td>перед</td></tr>
+<tr><td><b>inside / outside</b></td><td>внутри / снаружи</td></tr>
+</table></div>
+
+<h3>Куда? (направление)</h3>
+<p class="mono">to — к, в (I go <b>to</b> work) · from — из, от · into — внутрь · out of — наружу · through — сквозь · across — через · along — вдоль · around — вокруг · up / down — вверх / вниз</p>
+<p class="note">Исключение: <b>home</b> идёт без to. Правильно <i>I go home</i>, а не «to home».</p>
+
+<h3>Послелоги — маленькие слова, меняющие смысл</h3>
+<p>Это то, что Петров называет «второй половиной глагола». Глагол один, а смыслов много:</p>
+<div class="table-wrap"><table class="pairs">
+<tr><td>get <b>up</b></td><td>вставать</td></tr>
+<tr><td>come <b>in</b></td><td>входить</td></tr>
+<tr><td>go <b>out</b></td><td>выходить, гулять</td></tr>
+<tr><td>look <b>for</b></td><td>искать</td></tr>
+<tr><td>look <b>at</b></td><td>смотреть на</td></tr>
+<tr><td>turn <b>on / off</b></td><td>включить / выключить</td></tr>
+<tr><td>put <b>on</b></td><td>надевать</td></tr>
+<tr><td>take <b>off</b></td><td>снимать, взлетать</td></tr>
+<tr><td>give <b>up</b></td><td>сдаваться, бросать</td></tr>
+<tr><td>find <b>out</b></td><td>выяснять</td></tr>
+</table></div>
+`,
+  vocab: [
+    ['under','под'],['over','над'],['near','рядом'],['next to','рядом с'],['between','между'],
+    ['behind','позади'],['in front of','перед'],['inside','внутри'],['outside','снаружи'],
+    ['to','к, в'],['from','из, от'],['into','внутрь'],['out of','из'],['through','сквозь'],
+    ['across','через'],['around','вокруг'],['up','вверх'],['down','вниз'],['left','налево'],
+    ['right','направо'],['straight','прямо'],['get up','вставать'],['come in','входить'],
+    ['go out','выходить'],['look for','искать'],['look at','смотреть на'],['turn on','включить'],
+    ['turn off','выключить'],['put on','надевать'],['take off','снимать'],['find out','выяснить']
+  ],
+  drill: { modes:['base','tobe','there'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:10 }
+},
+
+/* ---------------------------------------------------------- 11 */
+{
+  n: 11,
+  title: 'Модальные глаголы: can, must, should',
+  goal: 'Говорить о возможности, необходимости и совете.',
+  theory: `
+<p class="lead">Модальные — особая каста. Они <b>не берут -s</b>, <b>не берут do/does/did</b> и после них глагол всегда в базовой форме.</p>
+
+<h3>Основные</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td><b>can</b></td><td>мочь, уметь</td></tr>
+<tr><td><b>must</b></td><td>должен (жёстко, обязан)</td></tr>
+<tr><td><b>should</b></td><td>следует (совет)</td></tr>
+<tr><td><b>may</b></td><td>можно, возможно</td></tr>
+<tr><td><b>could</b></td><td>мог бы (вежливо / прошлое от can)</td></tr>
+<tr><td><b>would</b></td><td>бы</td></tr>
+</table></div>
+
+<h3>Схема — одна на все</h3>
+<div class="table-wrap"><table class="petrov">
+<tr><th>Утверждение</th><th>Отрицание</th><th>Вопрос</th></tr>
+<tr><td>I <b>can</b> speak</td><td>I <b>cannot</b> speak<br><span class="dim">can't</span></td><td><b>can</b> I speak?</td></tr>
+<tr><td>I <b>must</b> go</td><td>I <b>must not</b> go</td><td><b>must</b> I go?</td></tr>
+<tr><td>I <b>should</b> know</td><td>I <b>should not</b> know</td><td><b>should</b> I know?</td></tr>
+</table></div>
+<p class="note">Никогда: <span class="bad">he cans</span>, <span class="bad">do you can?</span>, <span class="bad">I can to go</span>.</p>
+
+<h3>Прошедшее и будущее у модальных</h3>
+<p>У can есть прошедшее — <b>could</b>. У остальных прошедшего нет, используются замены:</p>
+<p class="mono">must → <b>had to</b> (пришлось): I <b>had to</b> go.<br>
+can (будущее) → <b>will be able to</b>: I <b>will be able to</b> come.</p>
+
+<h3>Вежливость</h3>
+<p class="mono">Could you help me, please? — Не могли бы вы мне помочь?<br>
+May I ask you a question? — Можно задать вопрос?<br>
+Would you like some coffee? — Не хотите ли кофе?</p>
+`,
+  vocab: [
+    ['can','мочь, уметь'],["can't",'не могу'],['could','мог бы'],['must','должен'],
+    ['should','следует'],['may','можно'],['would','бы'],['have to','приходится'],
+    ['be able to','быть в состоянии'],['need','нужно'],['maybe','может быть'],
+    ['of course','конечно'],['sure','конечно, уверен'],['probably','вероятно'],
+    ['possible','возможный'],['impossible','невозможный'],['necessary','необходимый'],
+    ['idea','идея'],['plan','план'],['way','путь, способ'],['help','помощь'],
+    ['advice','совет'],['choice','выбор'],['chance','шанс'],['try','пытаться'],
+    ['decide','решать'],['change','менять'],['stop','останавливать'],['continue','продолжать'],
+    ['keep (kept)','держать, продолжать']
+  ],
+  drill: { modes:['base','tobe','modal'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:11 }
+},
+
+/* ---------------------------------------------------------- 12 */
+{
+  n: 12,
+  title: 'Continuous — процесс, который идёт',
+  goal: 'Отличать «я работаю вообще» от «я работаю прямо сейчас».',
+  theory: `
+<h3>Формула</h3>
+<p class="lead"><b>to be</b> + глагол + <b>-ing</b></p>
+<p>Continuous — это <b>не новое время</b>. Это то же состояние (урок 3), только вместо прилагательного стоит «делающий».</p>
+<p class="mono">I <b>am</b> work<b>ing</b>. — Я (есть) работающий = я сейчас работаю.<br>
+He <b>was</b> read<b>ing</b>. — Он читал (в тот момент).<br>
+We <b>will be</b> wait<b>ing</b>. — Мы будем ждать.</p>
+
+<h3>Все клетки</h3>
+<div class="table-wrap"><table class="petrov">
+<tr><th></th><th>Утверждение</th><th>Отрицание</th><th>Вопрос</th></tr>
+<tr><th>Настоящее</th><td>I am doing</td><td>I am not doing</td><td>am I doing?</td></tr>
+<tr><th>Прошедшее</th><td>I was doing</td><td>I was not doing</td><td>was I doing?</td></tr>
+<tr><th>Будущее</th><td>I will be doing</td><td>I will not be doing</td><td>will I be doing?</td></tr>
+</table></div>
+
+<h3>Simple или Continuous?</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>I work in a bank.</td><td>вообще, всегда — <b>факт</b></td></tr>
+<tr><td>I am working now.</td><td>прямо сейчас — <b>процесс</b></td></tr>
+<tr><td>She reads a lot.</td><td>она вообще много читает</td></tr>
+<tr><td>She is reading now.</td><td>она сейчас читает</td></tr>
+</table></div>
+
+<h3>Правописание -ing</h3>
+<p class="mono">work → working · make → mak<b>ing</b> (немая -e уходит) · sit → sit<b>ting</b> (согласная удваивается) · lie → l<b>ying</b></p>
+
+<h3>Глаголы, которые не бывают в Continuous</h3>
+<p>Состояние, а не действие: <b>know, understand, like, love, want, need, remember, see, hear, believe</b>.<br>
+Нельзя <span class="bad">I am knowing</span> — только <b>I know</b>.</p>
+
+<h3>Ближайшее будущее</h3>
+<p>Про запланированное чаще говорят в Continuous или через going to:</p>
+<p class="mono">I <b>am meeting</b> him tomorrow. · I <b>am going to</b> call her.</p>
+`,
+  vocab: [
+    ['working','работающий'],['going','идущий'],['doing','делающий'],['coming','приходящий'],
+    ['going to','собираться'],['now','сейчас'],['at the moment','в данный момент'],
+    ['while','пока, в то время как'],['during','во время'],['before','до, перед'],
+    ['after','после'],['until','до тех пор пока'],['since','с (какого-то момента)'],
+    ['believe','верить'],['hear (heard)','слышать'],['hope','надеяться'],['seem','казаться'],
+    ['happen','случаться'],['look','выглядеть, смотреть'],['sound','звучать'],
+    ['wear (wore)','носить (одежду)'],['carry','нести'],['bring (brought)','приносить'],
+    ['move','двигаться'],['turn','поворачивать'],['open','открывать'],['show (showed)','показывать'],
+    ['build (built)','строить'],['grow (grew)','расти']
+  ],
+  drill: { modes:['base','tobe','modal','cont'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:12 }
+},
+
+/* ---------------------------------------------------------- 13 */
+{
+  n: 13,
+  title: 'Описание людей, вещей и погоды',
+  goal: 'Описать человека, место и погоду — самая частая бытовая тема.',
+  theory: `
+<h3>Порядок прилагательных</h3>
+<p>Если прилагательных несколько, англичане ставят их в фиксированном порядке:</p>
+<p class="mono">оценка → размер → возраст → цвет → происхождение → материал → существительное</p>
+<p class="mono">a <b>nice big old brown Italian leather</b> bag</p>
+<p class="note">На практике больше трёх подряд почти не встречается. Не переживайте.</p>
+
+<h3>Внешность</h3>
+<p class="mono">tall / short — высокий / низкий · thin / fat — худой / полный · young / old — молодой / старый · beautiful / handsome — красивая / красивый · dark / fair hair — тёмные / светлые волосы · blue eyes — голубые глаза</p>
+<p><b>What does he look like?</b> — Как он выглядит?<br>
+<b>He is tall and has dark hair.</b></p>
+
+<h3>Характер</h3>
+<p class="mono">kind — добрый · clever / smart — умный · funny — смешной · serious — серьёзный · calm — спокойный · friendly — дружелюбный · lazy — ленивый · honest — честный</p>
+<p><b>What is he like?</b> — Какой он (по характеру)?</p>
+
+<h3>Цвета</h3>
+<p class="mono">white · black · red · blue · green · yellow · brown · grey · orange · pink</p>
+
+<h3>Погода</h3>
+<p>Погода всегда через безличное <b>it</b>:</p>
+<p class="mono">It is cold / hot / warm / cool.<br>
+It is raining. — Идёт дождь.<br>
+It is snowing. — Идёт снег.<br>
+The sun is shining. — Светит солнце.<br>
+What's the weather like today? — Какая сегодня погода?</p>
+`,
+  vocab: [
+    ['tall','высокий'],['short','низкий, короткий'],['thin','худой'],['young','молодой'],
+    ['kind','добрый'],['clever','умный'],['funny','смешной'],['serious','серьёзный'],
+    ['calm','спокойный'],['friendly','дружелюбный'],['lazy','ленивый'],['honest','честный'],
+    ['white','белый'],['black','чёрный'],['red','красный'],['blue','синий'],['green','зелёный'],
+    ['yellow','жёлтый'],['brown','коричневый'],['grey','серый'],['weather','погода'],
+    ['cold','холодный'],['hot','жаркий'],['warm','тёплый'],['rain','дождь'],['snow','снег'],
+    ['sun','солнце'],['wind','ветер'],['cloud','облако'],['sky','небо'],['hair','волосы'],
+    ['eyes','глаза']
+  ],
+  drill: { modes:['base','tobe','modal','cont'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:13 }
+},
+
+/* ---------------------------------------------------------- 14 */
+{
+  n: 14,
+  title: 'Present Perfect — связь прошлого с настоящим',
+  goal: 'Говорить про опыт и результат: «я уже сделал», «я никогда не был».',
+  theory: `
+<h3>Формула</h3>
+<p class="lead"><b>have / has</b> + <b>третья форма</b> глагола</p>
+<p>Это не «прошедшее время». Это <b>результат сейчас</b>. Русский переводит и так, и так — смотрите на смысл.</p>
+<p class="mono">I <b>have done</b> it. — Я это сделал (и вот результат).<br>
+He <b>has gone</b>. — Он ушёл (его сейчас нет).<br>
+Have you <b>ever been</b> to London? — Ты когда-нибудь был в Лондоне?</p>
+
+<h3>Третья форма</h3>
+<p>У правильных глаголов третья форма = вторая = <b>+ed</b>: <i>work → worked → worked</i>.<br>
+У неправильных — своя, её нужно знать:</p>
+<p class="mono">see – saw – <b>seen</b> · go – went – <b>gone</b> · do – did – <b>done</b> · write – wrote – <b>written</b><br>
+take – took – <b>taken</b> · give – gave – <b>given</b> · speak – spoke – <b>spoken</b> · eat – ate – <b>eaten</b><br>
+be – was – <b>been</b> · come – came – <b>come</b> · know – knew – <b>known</b> · drink – drank – <b>drunk</b></p>
+
+<h3>Клетки</h3>
+<div class="table-wrap"><table class="petrov">
+<tr><th>Утверждение</th><th>Отрицание</th><th>Вопрос</th></tr>
+<tr><td>I <b>have</b> done<br><span class="dim">he <b>has</b> done</span></td><td>I <b>have not</b> done<br><span class="dim">haven't / hasn't</span></td><td><b>have</b> I done?<br><span class="dim">has he done?</span></td></tr>
+</table></div>
+
+<h3>Слова-маркеры</h3>
+<p class="mono">already — уже · just — только что · yet — ещё (в вопросах и отрицаниях) · ever — когда-либо · never — никогда · since — с (момента) · for — в течение</p>
+<p class="mono">I have <b>just</b> finished. · Have you done it <b>yet</b>? · I have <b>never</b> seen this.<br>
+I have lived here <b>for</b> ten years. · She has worked here <b>since</b> 2020.</p>
+
+<h3>Perfect или Past Simple?</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>I <b>saw</b> him yesterday.</td><td>есть конкретное время в прошлом → Past</td></tr>
+<tr><td>I <b>have seen</b> him.</td><td>времени нет, важен факт → Perfect</td></tr>
+</table></div>
+<p class="note">Простое правило: если в предложении есть <b>yesterday, last year, in 2020, ago</b> — только Past Simple.</p>
+`,
+  vocab: [
+    ['have done','сделал (результат)'],['already','уже'],['just','только что'],
+    ['yet','ещё'],['ever','когда-либо'],['never','никогда'],['since','с (момента)'],
+    ['for','в течение'],['ago','тому назад'],['been','был (3-я форма)'],['seen','увиденный'],
+    ['gone','ушедший'],['done','сделанный'],['written','написанный'],['taken','взятый'],
+    ['given','данный'],['spoken','сказанный'],['known','известный'],['eaten','съеденный'],
+    ['forget (forgot)','забывать'],['lose (lost)','терять'],['win (won)','выигрывать'],
+    ['break (broke)','ломать'],['choose (chose)','выбирать'],['spend (spent)','тратить'],
+    ['begin (began)','начинать'],['become (became)','становиться'],['bring (brought)','приносить'],
+    ['catch (caught)','ловить']
+  ],
+  drill: { modes:['base','tobe','modal','cont','perf'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:14 }
+},
+
+/* ---------------------------------------------------------- 15 */
+{
+  n: 15,
+  title: 'Повелительное наклонение и просьбы',
+  goal: 'Просить, предлагать, приказывать и запрещать.',
+  theory: `
+<h3>Приказ — самая простая форма в языке</h3>
+<p>Берём голый глагол. Никакого местоимения.</p>
+<p class="mono">Come here. — Иди сюда.<br>
+Open the door. — Открой дверь.<br>
+Wait a minute. — Подожди минуту.</p>
+
+<h3>Запрет</h3>
+<p><b>Don't</b> + глагол:</p>
+<p class="mono">Don't go. — Не уходи.<br>
+Don't worry. — Не волнуйся.<br>
+Don't tell him. — Не говори ему.</p>
+
+<h3>Предложение «давай»</h3>
+<p><b>Let's</b> (= let us) + глагол:</p>
+<p class="mono">Let's go. — Пойдём.<br>
+Let's do it tomorrow. — Давай сделаем это завтра.<br>
+Let's not talk about it. — Давай не будем об этом.</p>
+
+<h3>Вежливые просьбы — по возрастанию вежливости</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>Open the window.</td><td>приказ</td></tr>
+<tr><td>Open the window, <b>please</b>.</td><td>нейтрально</td></tr>
+<tr><td><b>Can you</b> open the window?</td><td>вежливо</td></tr>
+<tr><td><b>Could you</b> open the window, please?</td><td>очень вежливо</td></tr>
+<tr><td><b>Would you mind</b> opening the window?</td><td>максимально мягко</td></tr>
+</table></div>
+
+<h3>Let me / Let him</h3>
+<p class="mono">Let me help you. — Позволь мне помочь.<br>
+Let him go. — Отпусти его.</p>
+
+<h3>Полезные обиходные фразы</h3>
+<p class="mono">Take your time. — Не торопись.<br>
+Come on! — Давай! Ну же!<br>
+Hold on. — Подожди (по телефону).<br>
+Never mind. — Ничего страшного.<br>
+Look out! — Осторожно!</p>
+`,
+  vocab: [
+    ["let's",'давай'],['let me','позволь мне'],["don't",'не (запрет)'],['come on','давай, ну же'],
+    ['hold on','подожди'],['never mind','ничего страшного'],['take your time','не торопись'],
+    ['look out','осторожно'],['be careful','будь осторожен'],['hurry up','поторопись'],
+    ['sit down','садись'],['stand up','встань'],['come here','иди сюда'],['go away','уходи'],
+    ['worry','волноваться'],['relax','расслабиться'],['listen to me','послушай меня'],
+    ['tell me','скажи мне'],['show me','покажи мне'],['give me','дай мне'],['let go','отпусти'],
+    ['stop','остановись'],['wait','подожди'],['try again','попробуй снова'],
+    ['well done','молодец'],['good luck','удачи'],['have a nice day','хорошего дня'],
+    ['take care','береги себя'],['no problem','без проблем'],['forget it','забудь']
+  ],
+  drill: { modes:['base','tobe','modal','cont','perf','imper'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:15 }
+},
+
+/* ---------------------------------------------------------- 16 */
+{
+  n: 16,
+  title: 'Фразовые глаголы и пассивный залог. Итог',
+  goal: 'Собрать всю систему воедино и заговорить свободно на бытовые темы.',
+  theory: `
+<h3>Пассивный залог</h3>
+<p class="lead"><b>to be</b> + <b>третья форма</b></p>
+<p>Когда важно не «кто сделал», а «что было сделано»:</p>
+<p class="mono">This house <b>was built</b> in 1990. — Этот дом был построен в 1990.<br>
+English <b>is spoken</b> here. — Здесь говорят по-английски.<br>
+The work <b>will be done</b> tomorrow. — Работа будет сделана завтра.</p>
+<p>Кто сделал — через <b>by</b>: <i>This book was written <b>by</b> my friend.</i></p>
+
+<div class="table-wrap"><table class="petrov">
+<tr><th></th><th>Актив</th><th>Пассив</th></tr>
+<tr><th>Настоящее</th><td>they do it</td><td>it <b>is done</b></td></tr>
+<tr><th>Прошедшее</th><td>they did it</td><td>it <b>was done</b></td></tr>
+<tr><th>Будущее</th><td>they will do it</td><td>it <b>will be done</b></td></tr>
+</table></div>
+
+<h3>Фразовые глаголы — топ-30 на каждый день</h3>
+<div class="table-wrap"><table class="pairs">
+<tr><td>get up / get on / get off</td><td>вставать / садиться в / выходить из</td></tr>
+<tr><td>wake up</td><td>просыпаться</td></tr>
+<tr><td>look for / look after / look forward to</td><td>искать / заботиться / ждать с нетерпением</td></tr>
+<tr><td>find out</td><td>выяснить</td></tr>
+<tr><td>give up</td><td>сдаться, бросить</td></tr>
+<tr><td>put on / take off</td><td>надеть / снять</td></tr>
+<tr><td>turn on / turn off</td><td>включить / выключить</td></tr>
+<tr><td>go on / go out / go back</td><td>продолжать / выходить / возвращаться</td></tr>
+<tr><td>come back / come in</td><td>вернуться / войти</td></tr>
+<tr><td>pick up</td><td>подобрать, забрать</td></tr>
+<tr><td>set up</td><td>настроить, основать</td></tr>
+<tr><td>work out</td><td>тренироваться, получаться</td></tr>
+<tr><td>check in / check out</td><td>зарегистрироваться / выселиться</td></tr>
+<tr><td>run out of</td><td>закончиться (о запасе)</td></tr>
+<tr><td>deal with</td><td>иметь дело с</td></tr>
+</table></div>
+
+<h3>Что у вас теперь есть</h3>
+<ul>
+  <li>Базовая таблица глагола — 9 клеток действия</li>
+  <li>Таблица to be — 9 клеток состояния</li>
+  <li>Модальные — одна схема на все</li>
+  <li>Continuous, Perfect, пассив — надстройки над теми же двумя таблицами</li>
+  <li>~400 слов, которые покрывают 90% бытовой речи</li>
+</ul>
+<p class="lead">Дальше работает только одно: <b>говорить каждый день</b>. Не добирать грамматику, а гонять то, что есть, пока оно не станет автоматическим.</p>
+`,
+  vocab: [
+    ['is done','сделано (пассив)'],['was built','был построен'],['by','кем, посредством'],
+    ['wake up','просыпаться'],['get on','садиться в'],['get off','выходить из'],
+    ['look after','заботиться'],['look forward to','ждать с нетерпением'],['give up','сдаться'],
+    ['go on','продолжать'],['go back','возвращаться'],['come back','вернуться'],
+    ['pick up','забрать, подобрать'],['set up','настроить'],['work out','тренироваться'],
+    ['check in','зарегистрироваться'],['run out of','закончиться'],['deal with','иметь дело с'],
+    ['take care of','заботиться о'],['make sure','убедиться'],['pay attention','обращать внимание'],
+    ['make a decision','принять решение'],['have a look','взглянуть'],['take part','принять участие'],
+    ['keep in touch','оставаться на связи'],['by the way','кстати'],['at least','по крайней мере'],
+    ['in fact','на самом деле'],['as soon as','как только'],['instead of','вместо']
+  ],
+  drill: { modes:['base','tobe','modal','cont','perf','imper','pass'], tenses:['pres','past','fut'], forms:['aff','neg','que'], maxL:16 }
+}
+
+];
+
+/* ============================================================
+   ПОЛИГЛОТ · Грамматический движок
+   Генерирует бесконечный поток фраз «русский → английский»
+   по базовой таблице Петрова.
+   ============================================================ */
+
+/* ---------- вспомогательные наборы ---------- */
+
+/* Дополнения для предложений состояния (to be) */
+const COMPS = [
+  { en: 'at home',          ru: 'дома' },
+  { en: 'here',             ru: 'здесь' },
+  { en: 'there',            ru: 'там' },
+  { en: 'at work',          ru: 'на работе' },
+  { en: 'in Moscow',        ru: 'в Москве' },
+  { en: 'at the office',    ru: 'в офисе' },
+  { en: 'from Kazakhstan',  ru: 'из Казахстана' },
+  { en: 'a doctor',         ru: 'врач' },
+  { en: 'a teacher',        ru: 'учитель' },
+  { en: 'a student',        ru: 'студент' },
+  { en: 'my friend',        ru: 'мой друг' },
+  { en: 'ready',   ru: { m:'готов',    f:'готова',    pl:'готовы' } },
+  { en: 'busy',    ru: { m:'занят',    f:'занята',    pl:'заняты' } },
+  { en: 'free',    ru: { m:'свободен', f:'свободна',  pl:'свободны' } },
+  { en: 'happy',   ru: { m:'счастлив', f:'счастлива', pl:'счастливы' } },
+  { en: 'sure',    ru: { m:'уверен',   f:'уверена',   pl:'уверены' } },
+  { en: 'right',   ru: { m:'прав',     f:'права',     pl:'правы' } },
+  { en: 'tired',   ru: { m:'устал',    f:'устала',    pl:'устали' } },
+  { en: 'hungry',  ru: { m:'голоден',  f:'голодна',   pl:'голодны' } },
+  { en: 'young',   ru: { m:'молодой',  f:'молодая',   pl:'молодые' } },
+  { en: 'happy to see you', ru: { m:'рад тебя видеть', f:'рада тебя видеть', pl:'рады тебя видеть' } }
+];
+
+/* Существительные для there is / there are */
+const THERE_NOUNS = [
+  { en:'a book',        ru:'книга',        gen:'книги',        g:'f'  },
+  { en:'a problem',     ru:'проблема',     gen:'проблемы',     g:'f'  },
+  { en:'a question',    ru:'вопрос',       gen:'вопроса',      g:'m'  },
+  { en:'a shop',        ru:'магазин',      gen:'магазина',     g:'m'  },
+  { en:'a hotel',       ru:'отель',        gen:'отеля',        g:'m'  },
+  { en:'a car',         ru:'машина',       gen:'машины',       g:'f'  },
+  { en:'a window',      ru:'окно',         gen:'окна',         g:'n'  },
+  { en:'water',         ru:'вода',         gen:'воды',         g:'f'  },
+  { en:'two rooms',     ru:'две комнаты',  gen:'комнат',       g:'pl' },
+  { en:'many people',   ru:'много людей',  gen:'людей',        g:'pl' },
+  { en:'a lot of work', ru:'много работы', gen:'работы',       g:'f'  }
+];
+
+const THERE_PLACES = [
+  { en:'here',           ru:'здесь' },
+  { en:'there',          ru:'там' },
+  { en:'in the room',    ru:'в комнате' },
+  { en:'on the table',   ru:'на столе' },
+  { en:'in this city',   ru:'в этом городе' },
+  { en:'near my house',  ru:'рядом с моим домом' }
+];
+
+/* Модальные */
+const MODALS = [
+  { en:'can',    ru:['могу','можешь','может','может','можем','могут'], neg:"can't",     past:'could' },
+  { en:'must',   ru:{ m:'должен', f:'должна', pl:'должны' },           neg:'must not',  isAdj:true },
+  { en:'should', ru:['мне следует','тебе следует','ему следует','ей следует','нам следует','им следует'], neg:'should not', noPron:true }
+];
+
+/* Повелительное наклонение — готовые пары */
+const IMPERATIVES = [
+  ['Come here.','Иди сюда.'],
+  ['Open the door, please.','Открой дверь, пожалуйста.'],
+  ["Don't go.",'Не уходи.'],
+  ["Don't worry.",'Не волнуйся.'],
+  ["Let's go.",'Пойдём.'],
+  ["Let's do it tomorrow.",'Давай сделаем это завтра.'],
+  ['Wait a minute.','Подожди минуту.'],
+  ['Tell me the truth.','Скажи мне правду.'],
+  ['Show me this.','Покажи мне это.'],
+  ['Give me your hand.','Дай мне руку.'],
+  ["Don't tell him.",'Не говори ему.'],
+  ['Let me help you.','Позволь мне помочь тебе.'],
+  ['Call me tomorrow.','Позвони мне завтра.'],
+  ['Close the window.','Закрой окно.'],
+  ['Sit down, please.','Садись, пожалуйста.'],
+  ['Be careful.','Будь осторожен.'],
+  ["Don't be late.",'Не опаздывай.'],
+  ['Take your time.','Не торопись.'],
+  ["Let's not talk about it.",'Давай не будем об этом говорить.'],
+  ['Hurry up.','Поторопись.'],
+  ['Turn off the light.','Выключи свет.'],
+  ['Listen to me.','Послушай меня.'],
+  ['Try again.','Попробуй снова.'],
+  ["Don't forget.",'Не забудь.'],
+  ['Come in.','Входи.'],
+  ['Have a nice day.','Хорошего дня.']
+];
+
+/* Пассивный залог — готовые пары */
+const PASSIVES = [
+  ['This house was built in 1990.','Этот дом был построен в 1990.'],
+  ['English is spoken here.','Здесь говорят по-английски.'],
+  ['The work will be done tomorrow.','Работа будет сделана завтра.'],
+  ['This book was written by my friend.','Эта книга была написана моим другом.'],
+  ['The door is closed.','Дверь закрыта.'],
+  ['The letter was sent yesterday.','Письмо было отправлено вчера.'],
+  ['Nothing was said.','Ничего не было сказано.'],
+  ['It is not allowed.','Это не разрешено.'],
+  ['The car was bought last year.','Машина была куплена в прошлом году.'],
+  ['My question was not answered.','На мой вопрос не ответили.'],
+  ['This is made in Japan.','Это сделано в Японии.'],
+  ['The problem will be solved.','Проблема будет решена.'],
+  ['We were invited to the party.','Нас пригласили на вечеринку.'],
+  ['The room is cleaned every day.','Комнату убирают каждый день.'],
+  ['He was given a new job.','Ему дали новую работу.']
+];
+
+/* ---------- морфология английского ---------- */
+
+function vThird(v) {
+  const w = v.en;
+  if (w === 'have') return 'has';
+  if (w === 'do') return 'does';
+  if (w === 'go') return 'goes';
+  if (/(s|sh|ch|x|z|o)$/.test(w)) return w + 'es';
+  if (/[^aeiou]y$/.test(w)) return w.slice(0, -1) + 'ies';
+  return w + 's';
+}
+
+function vPast(v) {
+  if (v.p2) return v.p2;
+  return vEd(v.en);
+}
+
+function vPP(v) {
+  if (v.p3) return v.p3;
+  if (v.p2) return v.p2;
+  return vEd(v.en);
+}
+
+function vEd(w) {
+  if (/e$/.test(w)) return w + 'd';
+  if (/[^aeiou]y$/.test(w)) return w.slice(0, -1) + 'ied';
+  if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(w)) return w + w.slice(-1) + 'ed';
+  return w + 'ed';
+}
+
+function vIng(w) {
+  if (w === 'be') return 'being';
+  if (/ie$/.test(w)) return w.slice(0, -2) + 'ying';
+  if (/[^aeiou]e$/.test(w)) return w.slice(0, -1) + 'ing';
+  if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(w)) return w + w.slice(-1) + 'ing';
+  return w + 'ing';
+}
+
+/* ---------- морфология русского ---------- */
+
+const RU_FUT = ['буду', 'будешь', 'будет', 'будет', 'будем', 'будут'];
+const RU_WAS = ['был', 'был', 'был', 'была', 'были', 'были'];
+
+/* род для лица: 0 = «я», 1 = «ты», 2 = он, 3 = она, 4/5 = мн.ч. */
+function genderOf(i, myGender) {
+  const partner = myGender === 'f' ? 'm' : 'f';
+  if (i === 0) return myGender;
+  if (i === 1) return partner;
+  if (i === 2) return 'm';
+  if (i === 3) return 'f';
+  return 'pl';
+}
+
+function ruPast(v, i, myGender) {
+  const g = genderOf(i, myGender);
+  if (g === 'f') return v.ru.pf;
+  if (g === 'pl') return v.ru.pp;
+  return v.ru.pm;
+}
+
+function ruWas(i, myGender) {
+  const g = genderOf(i, myGender);
+  if (g === 'f') return 'была';
+  if (g === 'pl') return 'были';
+  return 'был';
+}
+
+function ruComp(comp, i, myGender) {
+  if (typeof comp.ru === 'string') return comp.ru;
+  const g = genderOf(i, myGender);
+  return comp.ru[g] || comp.ru.m;
+}
+
+/* ---------- утилиты ---------- */
+
+const rnd = a => a[Math.floor(Math.random() * a.length)];
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+function clean(parts) {
+  return parts.filter(x => x && x.length).join(' ').replace(/\s+/g, ' ').trim();
+}
+
+/* Нормализация для сравнения ответов */
+function norm(s) {
+  return s.toLowerCase()
+    .replace(/[.!?,]/g, '')
+    .replace(/’/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/* ---------- генераторы по режимам ---------- */
+
+function genBase(cfg) {
+  const pool = VERBS.filter(v => v.L <= cfg.maxL);
+  const v = rnd(pool);
+  const i = Math.floor(Math.random() * 6);
+  const p = PRONOUNS[i];
+  const t = rnd(cfg.tenses);
+  const f = rnd(cfg.forms);
+  const obj = rnd(v.o);
+  const oEn = obj[0], oRu = obj[1];
+  const third = p.third;
+
+  let en, ru, q = false;
+
+  if (t === 'pres') {
+    if (f === 'aff') en = clean([p.en, third ? vThird(v) : v.en, oEn]);
+    if (f === 'neg') en = clean([p.en, third ? "doesn't" : "don't", v.en, oEn]);
+    if (f === 'que') { en = clean([third ? 'does' : 'do', p.en, v.en, oEn]); q = true; }
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', v.ru.pres[i], oRu]);
+  }
+
+  if (t === 'past') {
+    if (f === 'aff') en = clean([p.en, vPast(v), oEn]);
+    if (f === 'neg') en = clean([p.en, "didn't", v.en, oEn]);
+    if (f === 'que') { en = clean(['did', p.en, v.en, oEn]); q = true; }
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', ruPast(v, i, cfg.gender), oRu]);
+  }
+
+  if (t === 'fut') {
+    if (f === 'aff') en = clean([p.en, 'will', v.en, oEn]);
+    if (f === 'neg') en = clean([p.en, "won't", v.en, oEn]);
+    if (f === 'que') { en = clean(['will', p.en, v.en, oEn]); q = true; }
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', RU_FUT[i], v.ru.inf, oRu]);
+  }
+
+  if (f === 'que') q = true;
+  return finish(en, ru, q, `${TENSES.find(x=>x.id===t).ru} · ${FORMS.find(x=>x.id===f).ru}`);
+}
+
+function genToBe(cfg) {
+  const i = Math.floor(Math.random() * 6);
+  const p = PRONOUNS[i];
+  const c = rnd(COMPS);
+  const t = rnd(cfg.tenses);
+  const f = rnd(cfg.forms);
+  const beP = i === 0 ? 'am' : (p.third ? 'is' : 'are');
+  const beD = (i === 0 || p.third) ? 'was' : 'were';
+  const compRu = ruComp(c, i, cfg.gender);
+
+  let en, ru, q = false;
+
+  if (t === 'pres') {
+    if (f === 'aff') en = clean([p.en, beP, c.en]);
+    if (f === 'neg') en = clean([p.en, beP, 'not', c.en]);
+    if (f === 'que') { en = clean([beP, p.en, c.en]); q = true; }
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', compRu]);
+  }
+  if (t === 'past') {
+    if (f === 'aff') en = clean([p.en, beD, c.en]);
+    if (f === 'neg') en = clean([p.en, beD, 'not', c.en]);
+    if (f === 'que') { en = clean([beD, p.en, c.en]); q = true; }
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', ruWas(i, cfg.gender), compRu]);
+  }
+  if (t === 'fut') {
+    if (f === 'aff') en = clean([p.en, 'will be', c.en]);
+    if (f === 'neg') en = clean([p.en, 'will not be', c.en]);
+    if (f === 'que') { en = clean(['will', p.en, 'be', c.en]); q = true; }
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', RU_FUT[i], compRu]);
+  }
+
+  return finish(en, ru, q, 'глагол to be · состояние');
+}
+
+function genThere(cfg) {
+  const n = rnd(THERE_NOUNS);
+  const pl = rnd(THERE_PLACES);
+  const t = rnd(cfg.tenses);
+  const f = rnd(cfg.forms);
+  const many = n.g === 'pl';
+
+  let en, ru, q = false;
+
+  if (t === 'pres') {
+    const be = many ? 'are' : 'is';
+    if (f === 'aff') en = clean(['there', be, n.en, pl.en]);
+    if (f === 'neg') en = clean(['there', be, 'not', n.en, pl.en]);
+    if (f === 'que') { en = clean([be, 'there', n.en, pl.en]); q = true; }
+    ru = f === 'neg' ? clean([cap(pl.ru), 'нет', n.gen]) : clean([cap(pl.ru), 'есть', n.ru]);
+  }
+  if (t === 'past') {
+    const be = many ? 'were' : 'was';
+    if (f === 'aff') en = clean(['there', be, n.en, pl.en]);
+    if (f === 'neg') en = clean(['there', be, 'not', n.en, pl.en]);
+    if (f === 'que') { en = clean([be, 'there', n.en, pl.en]); q = true; }
+    const wasRu = n.g === 'f' ? 'была' : n.g === 'n' ? 'было' : n.g === 'pl' ? 'были' : 'был';
+    ru = f === 'neg' ? clean([cap(pl.ru), 'не было', n.gen]) : clean([cap(pl.ru), wasRu, n.ru]);
+  }
+  if (t === 'fut') {
+    if (f === 'aff') en = clean(['there will be', n.en, pl.en]);
+    if (f === 'neg') en = clean(['there will not be', n.en, pl.en]);
+    if (f === 'que') { en = clean(['will there be', n.en, pl.en]); q = true; }
+    ru = f === 'neg'
+      ? clean([cap(pl.ru), 'не будет', n.gen])
+      : clean([cap(pl.ru), many ? 'будут' : 'будет', n.ru]);
+  }
+
+  return finish(en, ru, q, 'there is / there are');
+}
+
+function genModal(cfg) {
+  const pool = VERBS.filter(v => v.L <= cfg.maxL);
+  const v = rnd(pool);
+  const i = Math.floor(Math.random() * 6);
+  const p = PRONOUNS[i];
+  const m = rnd(MODALS);
+  const f = rnd(cfg.forms);
+  const obj = rnd(v.o);
+  let en, ru, q = false;
+
+  if (f === 'aff') en = clean([p.en, m.en, v.en, obj[0]]);
+  if (f === 'neg') en = clean([p.en, m.neg, v.en, obj[0]]);
+  if (f === 'que') { en = clean([m.en, p.en, v.en, obj[0]]); q = true; }
+
+  if (m.isAdj) {
+    const g = genderOf(i, cfg.gender);
+    const w = m.ru[g] || m.ru.m;
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', w, v.ru.inf, obj[1]]);
+  } else if (m.noPron) {
+    ru = clean([m.ru[i], f === 'neg' ? 'не' : '', v.ru.inf, obj[1]]);
+  } else {
+    ru = clean([p.ru, f === 'neg' ? 'не' : '', m.ru[i], v.ru.inf, obj[1]]);
+  }
+
+  return finish(en, ru, q, 'модальный глагол · без do и без -s');
+}
+
+function genCont(cfg) {
+  const pool = VERBS.filter(v => v.L <= cfg.maxL && !['know','understand','want','have','remember','see'].includes(v.en));
+  const v = rnd(pool);
+  const i = Math.floor(Math.random() * 6);
+  const p = PRONOUNS[i];
+  const f = rnd(cfg.forms);
+  const t = Math.random() < 0.5 ? 'pres' : 'past';
+  const obj = rnd(v.o);
+  const ving = vIng(v.en);
+  const beP = i === 0 ? 'am' : (p.third ? 'is' : 'are');
+  const beD = (i === 0 || p.third) ? 'was' : 'were';
+  const be = t === 'pres' ? beP : beD;
+  let en, ru, q = false;
+
+  if (f === 'aff') en = clean([p.en, be, ving, obj[0]]);
+  if (f === 'neg') en = clean([p.en, be, 'not', ving, obj[0]]);
+  if (f === 'que') { en = clean([be, p.en, ving, obj[0]]); q = true; }
+
+  const marker = t === 'pres' ? 'сейчас' : 'в тот момент';
+  const verbRu = t === 'pres' ? v.ru.pres[i] : ruPast(v, i, cfg.gender);
+  ru = clean([p.ru, marker, f === 'neg' ? 'не' : '', verbRu, obj[1]]);
+
+  return finish(en, ru, q, 'Continuous · to be + -ing');
+}
+
+function genPerf(cfg) {
+  const pool = VERBS.filter(v => v.L <= cfg.maxL);
+  const v = rnd(pool);
+  const i = Math.floor(Math.random() * 6);
+  const p = PRONOUNS[i];
+  const f = rnd(cfg.forms);
+  const obj = rnd(v.o);
+  const have = p.third ? 'has' : 'have';
+  const haveN = p.third ? "hasn't" : "haven't";
+  const pp = vPP(v);
+  let en, ru, q = false;
+
+  if (f === 'aff') { en = clean([p.en, have, 'already', pp, obj[0]]);
+                     ru = clean([p.ru, 'уже', ruPast(v, i, cfg.gender), obj[1]]); }
+  if (f === 'neg') { en = clean([p.en, haveN, pp, obj[0], 'yet']);
+                     ru = clean([p.ru, 'ещё не', ruPast(v, i, cfg.gender), obj[1]]); }
+  if (f === 'que') { en = clean([have, p.en, 'ever', pp, obj[0]]); q = true;
+                     ru = clean([p.ru, 'когда-нибудь', ruPast(v, i, cfg.gender), obj[1]]); }
+
+  return finish(en, ru, q, 'Present Perfect · have + 3-я форма');
+}
+
+function genPairs(list, hint) {
+  const pair = rnd(list);
+  return {
+    en: pair[0],
+    ru: pair[1],
+    hint,
+    tokens: makeTokens(pair[0])
+  };
+}
+
+/* ---------- сборка результата ---------- */
+
+function finish(en, ru, q, hint) {
+  const enFinal = cap(en) + (q ? '?' : '.');
+  const ruFinal = cap(ru) + (q ? '?' : '.');
+  return { en: enFinal, ru: ruFinal, hint, tokens: makeTokens(enFinal) };
+}
+
+/* Плитки: правильные слова + отвлекающие, всё перемешано */
+function makeTokens(sentence) {
+  const words = sentence.replace(/[.?!]/g, '').split(' ').filter(Boolean);
+  const extra = [];
+  const bag = DISTRACTORS.filter(d => !words.some(w => w.toLowerCase() === d));
+  const need = Math.min(4, Math.max(2, Math.round(words.length / 2)));
+  while (extra.length < need && bag.length) {
+    const d = bag.splice(Math.floor(Math.random() * bag.length), 1)[0];
+    extra.push(d);
+  }
+  const all = words.concat(extra);
+  for (let i = all.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [all[i], all[j]] = [all[j], all[i]];
+  }
+  return all;
+}
+
+/* ---------- публичная точка входа ---------- */
+
+function generatePhrase(drill, gender) {
+  const cfg = {
+    tenses: drill.tenses,
+    forms: drill.forms,
+    maxL: drill.maxL,
+    gender: gender || 'm'
+  };
+  const mode = rnd(drill.modes);
+  switch (mode) {
+    case 'tobe':  return genToBe(cfg);
+    case 'there': return genThere(cfg);
+    case 'modal': return genModal(cfg);
+    case 'cont':  return genCont(cfg);
+    case 'perf':  return genPerf(cfg);
+    case 'imper': return genPairs(IMPERATIVES, 'повелительное наклонение');
+    case 'pass':  return genPairs(PASSIVES, 'пассивный залог · to be + 3-я форма');
+    default:      return genBase(cfg);
+  }
+}
+
+/* ============================================================
+   ПОЛИГЛОТ · приложение
+   ============================================================ */
+
+const STORE_KEY = 'poliglot.v2';
+const NEW_CARDS_PER_DAY = 10;
+const DRILL_LEN = 15;
+const EXAM_LEN = 20;
+const EXAM_PASS = 0.8;
+
+/* ---------------- состояние ---------------- */
+
+function today() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function daysBetween(a, b) {
+  return Math.round((new Date(b) - new Date(a)) / 86400000);
+}
+function addDays(n) {
+  const d = new Date();
+  d.setDate(d.getDate() + n);
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function newProfile(name, gender) {
+  return {
+    name, gender,
+    unlocked: 1, xp: 0, streak: 0, lastDay: null,
+    doneToday: 0, newToday: 0, dayStamp: today(),
+    goal: 20, typeMode: false,
+    cards: {}, lessons: {}
+  };
+}
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) { /* приватный режим Safari */ }
+  return { active: null, profiles: {} };
+}
+
+function save() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); }
+  catch (e) { /* нет доступа к хранилищу — работаем в памяти */ }
+}
+
+let S = load();
+const P = () => S.profiles[S.active];
+
+function rollDay() {
+  const p = P(); if (!p) return;
+  const t = today();
+  if (p.dayStamp !== t) {
+    if (p.lastDay && daysBetween(p.lastDay, t) === 1) { /* серия продолжается */ }
+    else if (p.lastDay && daysBetween(p.lastDay, t) > 1) { p.streak = 0; }
+    p.dayStamp = t; p.doneToday = 0; p.newToday = 0;
+    save();
+  }
+}
+
+function credit(n) {
+  const p = P();
+  const t = today();
+  p.xp += n;
+  p.doneToday += 1;
+  if (p.lastDay !== t) {
+    p.streak = (p.lastDay && daysBetween(p.lastDay, t) === 1) ? p.streak + 1 : 1;
+    p.lastDay = t;
+  }
+  save();
+}
+
+/* ---------------- озвучка ---------------- */
+
+let voices = [];
+function loadVoices() { voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
+if (window.speechSynthesis) {
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text.replace(/[.?!]/g, ''));
+  u.lang = 'en-US';
+  u.rate = 0.9;
+  const v = voices.find(v => /en[-_]US/i.test(v.lang) && /Samantha|Alex|Ava|Google US/i.test(v.name))
+         || voices.find(v => /^en/i.test(v.lang));
+  if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+
+/* ---------------- SRS ---------------- */
+
+function cardKey(lesson, en) { return lesson + '|' + en; }
+
+function dueCards() {
+  const p = P();
+  const t = today();
+  const due = [], fresh = [];
+  for (let n = 1; n <= p.unlocked; n++) {
+    const L = COURSE[n - 1];
+    for (const [en, ru] of L.vocab) {
+      const k = cardKey(n, en);
+      const c = p.cards[k];
+      if (!c) fresh.push({ k, en, ru, lesson: n });
+      else if (c.due <= t) due.push({ k, en, ru, lesson: n, c });
+    }
+  }
+  const room = Math.max(0, NEW_CARDS_PER_DAY - p.newToday);
+  return due.concat(fresh.slice(0, room));
+}
+
+function gradeCard(k, g) {
+  const p = P();
+  let c = p.cards[k];
+  const isNew = !c;
+  if (!c) c = { ef: 2.5, iv: 0, n: 0, due: today() };
+  if (g === 0) { c.n = 0; c.iv = 0; c.ef = Math.max(1.3, c.ef - 0.25); c.due = today(); }
+  else {
+    c.n += 1;
+    if (g === 1) { c.ef = Math.max(1.3, c.ef - 0.15); c.iv = c.n === 1 ? 1 : Math.max(1, Math.round(c.iv * 1.2)); }
+    else { c.ef = Math.min(3.0, c.ef + 0.1); c.iv = c.n === 1 ? 1 : c.n === 2 ? 3 : Math.round(c.iv * c.ef); }
+    c.due = addDays(c.iv);
+  }
+  p.cards[k] = c;
+  if (isNew) p.newToday += 1;
+  save();
+}
+
+/* ---------------- маршрутизация ---------------- */
+
+let R = { screen: 'home', lesson: 1, tab: 'theory' };
+let session = null;
+
+const app = document.getElementById('app');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+function go(screen, opts = {}) {
+  Object.assign(R, { screen }, opts);
+  window.scrollTo(0, 0);
+  render();
+}
+
+function toast(msg) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1900);
+}
+
+/* ---------------- экраны ---------------- */
+
+function render() {
+  if (!S.active || !P()) return renderProfilePick();
+  rollDay();
+  switch (R.screen) {
+    case 'lesson': return renderLesson();
+    case 'drill':  return renderDrill();
+    case 'cards':  return renderCards();
+    case 'stats':  return renderStats();
+    default:       return renderHome();
+  }
+}
+
+/* --- выбор профиля --- */
+
+function renderProfilePick() {
+  const names = Object.keys(S.profiles);
+  app.innerHTML = `
+    <div class="brand"><h1>Полиглот</h1><span>метод Дмитрия Петрова</span></div>
+    <p style="color:var(--ink-dim);margin:14px 0 0">Кто занимается?</p>
+    <div class="profile-pick">
+      ${names.map(k => `<button class="btn" data-pick="${esc(k)}">${esc(S.profiles[k].name)}</button>`).join('')}
+      <button class="btn ghost" id="addProfile">+ Добавить человека</button>
+    </div>
+    <p class="footnote">Прогресс каждого хранится отдельно на этом устройстве.</p>`;
+
+  app.querySelectorAll('[data-pick]').forEach(b =>
+    b.onclick = () => { S.active = b.dataset.pick; save(); go('home'); });
+
+  document.getElementById('addProfile').onclick = () => {
+    const name = prompt('Имя');
+    if (!name) return;
+    const g = confirm('Женский род? ОК — женский, Отмена — мужской') ? 'f' : 'm';
+    const key = 'p' + Date.now();
+    S.profiles[key] = newProfile(name.trim(), g);
+    S.active = key; save(); go('home');
+  };
+}
+
+/* --- главный экран --- */
+
+function renderHome() {
+  const p = P();
+  const due = dueCards().length;
+  const pct = Math.min(100, Math.round(p.doneToday / p.goal * 100));
+
+  app.innerHTML = `
+    <div class="row" style="margin-bottom:16px">
+      <div class="grow">
+        <div class="brand"><h1>Полиглот</h1></div>
+        <div style="font-size:13px;color:var(--ink-faint)">${esc(p.name)} · метод Д. Петрова</div>
+      </div>
+      <button class="speak" id="switchProfile">⇄</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat hot"><div class="v">${p.streak}</div><div class="k">дней подряд</div></div>
+      <div class="stat"><div class="v">${p.doneToday}<span style="font-size:14px;color:var(--ink-faint)">/${p.goal}</span></div><div class="k">сегодня</div></div>
+      <div class="stat"><div class="v">${p.xp}</div><div class="k">очков</div></div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="margin-bottom:10px">
+        <div class="grow" style="font-size:14px;color:var(--ink-dim)">Дневная цель</div>
+        <div style="font-size:14px;font-weight:600">${pct}%</div>
+      </div>
+      <div class="bar"><i style="width:${pct}%"></i></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn primary" id="continue">Продолжить урок ${p.unlocked}</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="warmup">Разминка</button>
+      <button class="btn" id="toCards">Слова ${due ? '· ' + due : ''}</button>
+    </div>
+
+    <h3 style="font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);margin:24px 0 10px">16 уроков</h3>
+    ${COURSE.map(L => {
+      const locked = L.n > p.unlocked;
+      const done = L.n < p.unlocked;
+      const cur = L.n === p.unlocked;
+      return `<div class="lesson ${locked ? 'locked' : ''} ${done ? 'done' : ''} ${cur ? 'current' : ''}" ${locked ? '' : `data-lesson="${L.n}"`}>
+        <div class="num">${done ? '✓' : L.n}</div>
+        <div class="grow"><div class="t">${esc(L.title)}</div><div class="g">${esc(L.goal)}</div></div>
+        <div class="chev">${locked ? '🔒' : '›'}</div>
+      </div>`;
+    }).join('')}
+
+    <button class="btn ghost" id="toStats" style="margin-top:14px">Статистика и настройки</button>
+    <p class="footnote">Курс построен по телепрограмме «Полиглот. Выучим английский за 16 часов»<br>с Дмитрием Петровым (телеканал «Культура»).</p>`;
+
+  document.getElementById('continue').onclick = () => go('lesson', { lesson: p.unlocked, tab: 'theory' });
+  document.getElementById('warmup').onclick = () => startDrill(p.unlocked, 'warmup');
+  document.getElementById('toCards').onclick = () => go('cards');
+  document.getElementById('toStats').onclick = () => go('stats');
+  document.getElementById('switchProfile').onclick = () => { S.active = null; save(); render(); };
+  app.querySelectorAll('[data-lesson]').forEach(el =>
+    el.onclick = () => go('lesson', { lesson: +el.dataset.lesson, tab: 'theory' }));
+}
+
+/* --- урок --- */
+
+function topbar(title, sub) {
+  return `<div class="topbar">
+    <button class="back" id="back">‹</button>
+    <div class="grow"><h1>${esc(title)}</h1>${sub ? `<div class="sub">${esc(sub)}</div>` : ''}</div>
+  </div>`;
+}
+
+function renderLesson() {
+  const p = P();
+  const L = COURSE[R.lesson - 1];
+  const st = p.lessons[L.n] || {};
+  const tabs = [['theory', 'Теория'], ['drill', 'Тренажёр'], ['words', 'Слова'], ['exam', 'Экзамен']];
+
+  let body = '';
+
+  if (R.tab === 'theory') {
+    body = `<div class="theory">${L.theory}</div>
+      <button class="btn primary" id="startDrill" style="margin-top:20px">К тренажёру →</button>`;
+  }
+
+  if (R.tab === 'drill') {
+    body = `<div class="card">
+        <p style="margin:0 0 6px;font-weight:600">Тренажёр фраз</p>
+        <p style="margin:0;color:var(--ink-dim);font-size:15px">${DRILL_LEN} фраз. Собирайте английский перевод из слов. Фразы генерируются заново каждый раз — заучить набор не получится, придётся понимать.</p>
+      </div>
+      ${st.drills ? `<div class="card"><div class="row"><div class="grow" style="color:var(--ink-dim);font-size:14px">Пройдено подходов</div><b>${st.drills}</b></div></div>` : ''}
+      <button class="btn primary" id="startDrill">Начать</button>`;
+  }
+
+  if (R.tab === 'words') {
+    body = `<div class="card" style="margin-bottom:14px">
+        <p style="margin:0;color:var(--ink-dim);font-size:15px">${L.vocab.length} слов этого урока. Они автоматически попадают в карточки с интервальным повторением.</p>
+      </div>
+      <div class="wordlist">
+        ${L.vocab.map(([en, ru]) => `<div class="w" data-say="${esc(en)}"><b>${esc(en)}</b><span>${esc(ru)}</span><span style="flex:0;color:var(--ink-faint)">🔊</span></div>`).join('')}
+      </div>`;
+  }
+
+  if (R.tab === 'exam') {
+    const best = st.best || 0;
+    body = `<div class="card">
+        <p style="margin:0 0 6px;font-weight:600">Экзамен урока ${L.n}</p>
+        <p style="margin:0;color:var(--ink-dim);font-size:15px">${EXAM_LEN} фраз без подсказок. Нужно ${Math.round(EXAM_PASS * 100)}% правильных, чтобы открыть следующий урок.</p>
+      </div>
+      ${best ? `<div class="card"><div class="row"><div class="grow" style="color:var(--ink-dim);font-size:14px">Лучший результат</div><b>${best}%</b></div></div>` : ''}
+      <button class="btn danger" id="startExam">Сдавать экзамен</button>`;
+  }
+
+  app.innerHTML = topbar('Урок ' + L.n, L.title) + `
+    <div class="tabs">${tabs.map(([id, t]) => `<button data-tab="${id}" class="${R.tab === id ? 'on' : ''}">${t}</button>`).join('')}</div>
+    ${body}`;
+
+  document.getElementById('back').onclick = () => go('home');
+  app.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => go('lesson', { tab: b.dataset.tab }));
+  const sd = document.getElementById('startDrill');
+  if (sd) sd.onclick = () => startDrill(L.n, 'drill');
+  const se = document.getElementById('startExam');
+  if (se) se.onclick = () => startDrill(L.n, 'exam');
+  app.querySelectorAll('[data-say]').forEach(el =>
+    el.onclick = () => speak(el.dataset.say.replace(/\s*\(.*?\)/g, '')));
+}
+
+/* --- тренажёр --- */
+
+function startDrill(lesson, kind) {
+  const p = P();
+  const L = COURSE[lesson - 1];
+  const drill = kind === 'warmup'
+    ? { ...L.drill, maxL: p.unlocked }
+    : L.drill;
+  session = {
+    lesson, kind, drill,
+    total: kind === 'exam' ? EXAM_LEN : DRILL_LEN,
+    i: 0, correct: 0,
+    phrase: null, picked: [], checked: false, wasRight: false
+  };
+  nextPhrase();
+  go('drill');
+}
+
+function nextPhrase() {
+  session.phrase = generatePhrase(session.drill, P().gender);
+  session.picked = [];
+  session.checked = false;
+}
+
+function renderDrill() {
+  const s = session;
+  if (!s) return go('home');
+
+  if (s.i >= s.total) return renderDrillEnd();
+
+  const p = P();
+  const pct = Math.round(s.i / s.total * 100);
+  const answerText = s.picked.join(' ');
+
+  app.innerHTML = topbar(
+      s.kind === 'exam' ? 'Экзамен' : s.kind === 'warmup' ? 'Разминка' : 'Тренажёр',
+      'Урок ' + s.lesson) + `
+    <div class="drill-top">
+      <span>${s.i + 1} / ${s.total}</span>
+      <div class="bar"><i style="width:${pct}%"></i></div>
+      <span>${s.correct} ✓</span>
+    </div>
+
+    <div class="prompt">
+      ${s.kind === 'exam' ? '' : `<div class="hint">${esc(s.phrase.hint)}</div>`}
+      <div class="ru">${esc(s.phrase.ru)}</div>
+    </div>
+
+    ${p.typeMode ? `
+      <input class="typed" id="typed" autocapitalize="off" autocorrect="off" autocomplete="off"
+             spellcheck="false" placeholder="Ответ по-английски" value="${esc(answerText)}" ${s.checked ? 'disabled' : ''}>
+    ` : `
+      <div class="answer ${s.checked ? (s.wasRight ? 'ok' : 'bad') : ''}" id="answer">
+        ${s.picked.map((w, idx) => `<button class="tile" data-un="${idx}">${esc(w)}</button>`).join('')}
+      </div>
+      <div class="tiles">
+        ${s.phrase.tokens.map((w, idx) => `<button class="tile ${s.picked.includes(w) && countIn(s.picked, w) > countUpTo(s.phrase.tokens, w, idx) ? 'used' : ''}" data-tk="${idx}">${esc(w)}</button>`).join('')}
+      </div>
+    `}
+
+    ${s.checked ? `
+      <div class="feedback ${s.wasRight ? 'ok' : 'bad'}">
+        <div class="label">${s.wasRight ? 'Верно' : 'Правильный ответ'}</div>
+        <div class="correct">${esc(s.phrase.en)}</div>
+      </div>
+      <div class="btn-row">
+        <button class="speak" id="say" style="width:52px;min-height:52px">🔊</button>
+        <button class="btn primary" id="next">Дальше</button>
+      </div>
+    ` : `
+      <div class="btn-row">
+        <button class="btn ghost" id="skip">Не знаю</button>
+        <button class="btn primary" id="check">Проверить</button>
+      </div>
+    `}
+    <button class="btn ghost" id="quit" style="margin-top:8px">Закончить</button>`;
+
+  document.getElementById('back').onclick = () => { session = null; go('lesson', { lesson: s.lesson }); };
+  document.getElementById('quit').onclick = () => { session = null; go('lesson', { lesson: s.lesson }); };
+
+  if (!p.typeMode) {
+    app.querySelectorAll('[data-tk]').forEach(b => b.onclick = () => {
+      if (s.checked) return;
+      s.picked.push(s.phrase.tokens[+b.dataset.tk]);
+      renderDrill();
+    });
+    app.querySelectorAll('[data-un]').forEach(b => b.onclick = () => {
+      if (s.checked) return;
+      s.picked.splice(+b.dataset.un, 1);
+      renderDrill();
+    });
+  }
+
+  const chk = document.getElementById('check');
+  if (chk) chk.onclick = () => {
+    if (p.typeMode) s.picked = (document.getElementById('typed').value || '').trim().split(/\s+/).filter(Boolean);
+    checkAnswer();
+  };
+
+  const skip = document.getElementById('skip');
+  if (skip) skip.onclick = () => { s.picked = []; s.checked = true; s.wasRight = false; speak(s.phrase.en); renderDrill(); };
+
+  const nx = document.getElementById('next');
+  if (nx) nx.onclick = () => { s.i += 1; nextPhrase(); renderDrill(); };
+
+  const say = document.getElementById('say');
+  if (say) say.onclick = () => speak(s.phrase.en);
+
+  const ti = document.getElementById('typed');
+  if (ti && !s.checked) {
+    ti.oninput = () => { s.picked = ti.value.trim().split(/\s+/).filter(Boolean); };
+    ti.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); checkAnswer(); } };
+  }
+}
+
+function countIn(arr, w) { return arr.filter(x => x === w).length; }
+function countUpTo(arr, w, idx) { return arr.slice(0, idx + 1).filter(x => x === w).length - 1; }
+
+function checkAnswer() {
+  const s = session;
+  const ok = norm(s.picked.join(' ')) === norm(s.phrase.en);
+  s.checked = true;
+  s.wasRight = ok;
+  if (ok) { s.correct += 1; credit(1); }
+  speak(s.phrase.en);
+  renderDrill();
+}
+
+function renderDrillEnd() {
+  const s = session;
+  const p = P();
+  const pct = Math.round(s.correct / s.total * 100);
+  const st = p.lessons[s.lesson] || (p.lessons[s.lesson] = {});
+
+  let unlockedNow = false;
+  if (s.kind === 'exam') {
+    st.best = Math.max(st.best || 0, pct);
+    if (pct >= EXAM_PASS * 100 && p.unlocked === s.lesson && s.lesson < 16) {
+      p.unlocked = s.lesson + 1;
+      unlockedNow = true;
+    }
+  } else {
+    st.drills = (st.drills || 0) + 1;
+  }
+  p.xp += Math.round(pct / 10);
+  save();
+
+  app.innerHTML = topbar('Готово', 'Урок ' + s.lesson) + `
+    <div class="flash">
+      <div class="word" style="font-size:46px">${pct}%</div>
+      <div class="tr">${s.correct} из ${s.total}</div>
+      ${unlockedNow ? '<div style="color:var(--ok);font-weight:600">Урок ' + (s.lesson + 1) + ' открыт</div>' : ''}
+      ${s.kind === 'exam' && pct < EXAM_PASS * 100 ? '<div style="color:var(--ink-dim);font-size:14px">Нужно ' + Math.round(EXAM_PASS * 100) + '%. Погоняйте тренажёр и попробуйте снова.</div>' : ''}
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="again">Ещё подход</button>
+      <button class="btn primary" id="home">На главную</button>
+    </div>`;
+
+  document.getElementById('back').onclick = () => { session = null; go('home'); };
+  document.getElementById('home').onclick = () => { session = null; go('home'); };
+  document.getElementById('again').onclick = () => startDrill(s.lesson, s.kind);
+}
+
+/* --- карточки слов --- */
+
+let cardQueue = null;
+let cardShown = false;
+
+function renderCards() {
+  if (!cardQueue) cardQueue = shuffle(dueCards());
+
+  if (!cardQueue.length) {
+    app.innerHTML = topbar('Слова') + `
+      <div class="empty"><div class="big">✓</div>
+        <p>На сегодня всё повторено.<br>Возвращайтесь завтра — интервалы работают только так.</p></div>
+      <button class="btn primary" id="home">На главную</button>`;
+    document.getElementById('back').onclick = () => { cardQueue = null; go('home'); };
+    document.getElementById('home').onclick = () => { cardQueue = null; go('home'); };
+    return;
+  }
+
+  const c = cardQueue[0];
+  const clean = c.en.replace(/\s*\(.*?\)/g, '');
+
+  app.innerHTML = topbar('Слова', 'осталось ' + cardQueue.length) + `
+    <div class="flash" id="flash">
+      <div class="word">${esc(c.en)}</div>
+      ${cardShown ? `<div class="tr">${esc(c.ru)}</div>` : '<div class="tap">нажмите, чтобы увидеть перевод</div>'}
+    </div>
+    ${cardShown ? `
+      <div class="grade">
+        <button class="btn" data-g="0">Не помню</button>
+        <button class="btn" data-g="1">Трудно</button>
+        <button class="btn primary" data-g="2">Легко</button>
+      </div>` : `
+      <button class="btn primary" id="show">Показать перевод</button>`}
+    <button class="btn ghost" id="sayw" style="margin-top:10px">🔊 Произнести</button>`;
+
+  document.getElementById('back').onclick = () => { cardQueue = null; cardShown = false; go('home'); };
+  document.getElementById('sayw').onclick = () => speak(clean);
+  document.getElementById('flash').onclick = () => { cardShown = true; speak(clean); renderCards(); };
+  const sh = document.getElementById('show');
+  if (sh) sh.onclick = () => { cardShown = true; speak(clean); renderCards(); };
+
+  app.querySelectorAll('[data-g]').forEach(b => b.onclick = () => {
+    const g = +b.dataset.g;
+    gradeCard(c.k, g);
+    credit(1);
+    cardQueue.shift();
+    if (g === 0) cardQueue.push(c);
+    cardShown = false;
+    renderCards();
+  });
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/* --- статистика и настройки --- */
+
+function renderStats() {
+  const p = P();
+  const totalCards = Object.keys(p.cards).length;
+  const learned = Object.values(p.cards).filter(c => c.iv >= 7).length;
+  const allWords = COURSE.reduce((n, L) => n + L.vocab.length, 0);
+
+  app.innerHTML = topbar('Статистика', esc(p.name)) + `
+    <div class="stats">
+      <div class="stat hot"><div class="v">${p.streak}</div><div class="k">дней подряд</div></div>
+      <div class="stat"><div class="v">${p.xp}</div><div class="k">очков</div></div>
+      <div class="stat"><div class="v">${p.unlocked}/16</div><div class="k">уроков</div></div>
+    </div>
+
+    <div class="card">
+      <div class="row"><div class="grow">Слов в работе</div><b>${totalCards} / ${allWords}</b></div>
+    </div>
+    <div class="card">
+      <div class="row"><div class="grow">Закреплено (интервал ≥ 7 дней)</div><b>${learned}</b></div>
+    </div>
+    <div class="card">
+      <div class="row"><div class="grow">Дневная цель</div>
+        <button class="btn sm" id="goalMinus">−</button>
+        <b style="min-width:34px;text-align:center">${p.goal}</b>
+        <button class="btn sm" id="goalPlus">+</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row"><div class="grow">Вводить ответ с клавиатуры</div>
+        <button class="btn sm" id="tm">${p.typeMode ? 'вкл' : 'выкл'}</button>
+      </div>
+      <p style="margin:8px 0 0;font-size:13px;color:var(--ink-faint)">Выключено — собираете фразу из плиток. Включено — печатаете сами, это сложнее и полезнее.</p>
+    </div>
+    <div class="card">
+      <div class="row"><div class="grow">Род для фраз о себе</div>
+        <button class="btn sm" id="gd">${p.gender === 'f' ? 'женский' : 'мужской'}</button>
+      </div>
+      <p style="margin:8px 0 0;font-size:13px;color:var(--ink-faint)">Влияет на русские подсказки: «я делал» / «я делала».</p>
+    </div>
+
+    <button class="btn ghost" id="switchP" style="margin-top:14px">Сменить человека</button>
+    <button class="btn ghost" id="reset" style="margin-top:8px;color:var(--bad)">Сбросить прогресс</button>`;
+
+  document.getElementById('back').onclick = () => go('home');
+  document.getElementById('goalMinus').onclick = () => { p.goal = Math.max(5, p.goal - 5); save(); render(); };
+  document.getElementById('goalPlus').onclick = () => { p.goal = Math.min(100, p.goal + 5); save(); render(); };
+  document.getElementById('tm').onclick = () => { p.typeMode = !p.typeMode; save(); render(); };
+  document.getElementById('gd').onclick = () => { p.gender = p.gender === 'f' ? 'm' : 'f'; save(); render(); };
+  document.getElementById('switchP').onclick = () => { S.active = null; save(); render(); };
+  document.getElementById('reset').onclick = () => {
+    if (!confirm('Сбросить весь прогресс ' + p.name + '?')) return;
+    S.profiles[S.active] = newProfile(p.name, p.gender);
+    save(); go('home');
+  };
+}
+
+/* ---------------- отладочный доступ (для автотестов) ---------------- */
+
+window.Poliglot = {
+  get S() { return S; },
+  get session() { return session; },
+  get route() { return R; }
+};
+
+/* ---------------- старт ---------------- */
+
+(function init() {
+  if (!Object.keys(S.profiles).length) {
+    S.profiles.azamat = newProfile('Азамат', 'm');
+    S.profiles.wife = newProfile('Жена', 'f');
+    save();
+  }
+  render();
+
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+})();
+
+</script>
+</body>
+</html>
