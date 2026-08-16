@@ -78,6 +78,55 @@ if (badSamples.length) {
     console.log('    урок ' + b.L + ' | ' + b.p.ru + ' → ' + b.p.en + '  [' + b.problems.join(', ') + ']'));
 }
 
+console.log('\nЕстественность речи (регресс на найденные баги)');
+const BAD_RU_PATTERNS = [
+  /\bследует не\b/,        // должно быть «не следует»
+  /\bничего\b(?!.* не )/,  // «ничего» без «не» рядом — двойное отрицание сломано
+];
+const BAD_EN_PATTERNS = [
+  /\bdo(es|didn't| not)? .*\bnothing\b/, // "don't ... nothing" — двойное отрицание
+  /\blisten music\b/i,                   // нужно "listen to music"
+];
+let naturalBad = 0;
+for (const L of COURSE) {
+  for (let i = 0; i < 300; i++) {
+    const p = generatePhrase(L.drill, i % 2 ? 'm' : 'f');
+    for (const re of BAD_RU_PATTERNS) if (re.test(p.ru)) { naturalBad++; console.log('    плохой RU: ' + p.ru); }
+    for (const re of BAD_EN_PATTERNS) if (re.test(p.en)) { naturalBad++; console.log('    плохой EN: ' + p.en); }
+  }
+}
+check('нет двойных отрицаний и известных багов речи (4800 фраз)', naturalBad === 0, naturalBad);
+
+// целевая проверка: should + отрицание всегда «не следует», не «следует не»
+let shouldOk = true;
+for (let i = 0; i < 100; i++) {
+  const p = generatePhrase({ modes: ['modal'], tenses: ['pres'], forms: ['neg'], maxL: 16 }, 'f');
+  if (/следует/.test(p.ru) && !/не следует/.test(p.ru)) { shouldOk = false; console.log('    ' + p.ru); }
+}
+check('«should» в отрицании даёт «не следует»', shouldOk);
+
+// целевая проверка: профессия в прошедшем/будущем — творительный падеж
+let caseOk = true;
+const NOM = ['врач', 'учитель', 'студент', 'друг'];
+for (let i = 0; i < 200; i++) {
+  const p = generatePhrase({ modes: ['tobe'], tenses: ['past', 'fut'], forms: ['aff', 'neg'], maxL: 16 }, 'm');
+  for (const w of NOM) {
+    if (new RegExp('\\b' + w + '\\b').test(p.ru)) { caseOk = false; console.log('    ' + p.ru); }
+  }
+}
+check('профессия в прошедшем/будущем — творительный падеж («буду врачом»)', caseOk);
+
+// целевая проверка: we/they + профессия -> множественное число, без артикля "a"
+let numberOk = true;
+for (let i = 0; i < 300; i++) {
+  const p = generatePhrase({ modes: ['tobe'], tenses: ['pres', 'past', 'fut'], forms: ['aff', 'neg', 'que'], maxL: 16 }, 'm');
+  const subj = /^(we|they|do they|will they|was they|were they)\b/i.test(p.en) || /\b(we|they)\b/i.test(p.en.split(' ')[0] + ' ' + p.en.split(' ')[1]);
+  if (/\b(they|we)\b/i.test(p.en) && /\ba (doctor|teacher|student|friend)\b/.test(p.en)) {
+    numberOk = false; console.log('    ' + p.en);
+  }
+}
+check('we/they с профессией — множественное число без артикля', numberOk);
+
 console.log('\nСравнение ответов');
 check('регистр и точки игнорируются',
   norm('I love you.') === norm('i love you'));

@@ -14,11 +14,10 @@ const COMPS = [
   { en: 'at work',          ru: 'на работе' },
   { en: 'in Moscow',        ru: 'в Москве' },
   { en: 'at the office',    ru: 'в офисе' },
-  { en: 'from Kazakhstan',  ru: 'из Казахстана' },
-  { en: 'a doctor',         ru: 'врач' },
-  { en: 'a teacher',        ru: 'учитель' },
-  { en: 'a student',        ru: 'студент' },
-  { en: 'my friend',        ru: 'мой друг' },
+  { en: 'a doctor',  enPl: 'doctors',  ru: 'врач',    ru_pl: 'врачи',    ins: 'врачом',   ins_pl: 'врачами' },
+  { en: 'a teacher', enPl: 'teachers', ru: 'учитель', ru_pl: 'учителя',  ins: 'учителем', ins_pl: 'учителями' },
+  { en: 'a student', enPl: 'students', ru: 'студент', ru_pl: 'студенты',ins: 'студентом', ins_pl: 'студентами' },
+  { en: 'a friend',  enPl: 'friends',  ru: 'друг',    ru_pl: 'друзья',   ins: 'другом',   ins_pl: 'друзьями' },
   { en: 'ready',   ru: { m:'готов',    f:'готова',    pl:'готовы' } },
   { en: 'busy',    ru: { m:'занят',    f:'занята',    pl:'заняты' } },
   { en: 'free',    ru: { m:'свободен', f:'свободна',  pl:'свободны' } },
@@ -59,7 +58,7 @@ const THERE_PLACES = [
 const MODALS = [
   { en:'can',    ru:['могу','можешь','может','может','можем','могут'], neg:"can't",     past:'could' },
   { en:'must',   ru:{ m:'должен', f:'должна', pl:'должны' },           neg:'must not',  isAdj:true },
-  { en:'should', ru:['мне следует','тебе следует','ему следует','ей следует','нам следует','им следует'], neg:'should not', noPron:true }
+  { en:'should', dat:['мне','тебе','ему','ей','нам','им'], verb:'следует', neg:'should not', noPron:true }
 ];
 
 /* Повелительное наклонение — готовые пары */
@@ -178,10 +177,24 @@ function ruWas(i, myGender) {
   return 'был';
 }
 
-function ruComp(comp, i, myGender) {
-  if (typeof comp.ru === 'string') return comp.ru;
+function ruComp(comp, i, myGender, tense) {
+  if (typeof comp.ru === 'string') {
+    /* профессии и т.п.: в прошедшем/будущем при глаголе «быть»
+       существительное встаёт в творительный падеж («буду врачом»),
+       в настоящем — именительный, без связки («я врач»).
+       С we/they — множественное число («они врачи», «мы будем врачами»). */
+    const plural = (i === 4 || i === 5) && comp.ru_pl;
+    if (tense && tense !== 'pres' && comp.ins) return plural ? comp.ins_pl : comp.ins;
+    return plural ? comp.ru_pl : comp.ru;
+  }
   const g = genderOf(i, myGender);
   return comp.ru[g] || comp.ru.m;
+}
+
+/* Английский текст дополнения с учётом числа (артикль пропадает во мн.ч.) */
+function enComp(comp, i) {
+  if ((i === 4 || i === 5) && comp.enPl) return comp.enPl;
+  return comp.en;
 }
 
 /* ---------- утилиты ---------- */
@@ -250,26 +263,27 @@ function genToBe(cfg) {
   const f = rnd(cfg.forms);
   const beP = i === 0 ? 'am' : (p.third ? 'is' : 'are');
   const beD = (i === 0 || p.third) ? 'was' : 'were';
-  const compRu = ruComp(c, i, cfg.gender);
+  const compRu = ruComp(c, i, cfg.gender, t);
+  const compEn = enComp(c, i);
 
   let en, ru, q = false;
 
   if (t === 'pres') {
-    if (f === 'aff') en = clean([p.en, beP, c.en]);
-    if (f === 'neg') en = clean([p.en, beP, 'not', c.en]);
-    if (f === 'que') { en = clean([beP, p.en, c.en]); q = true; }
+    if (f === 'aff') en = clean([p.en, beP, compEn]);
+    if (f === 'neg') en = clean([p.en, beP, 'not', compEn]);
+    if (f === 'que') { en = clean([beP, p.en, compEn]); q = true; }
     ru = clean([p.ru, f === 'neg' ? 'не' : '', compRu]);
   }
   if (t === 'past') {
-    if (f === 'aff') en = clean([p.en, beD, c.en]);
-    if (f === 'neg') en = clean([p.en, beD, 'not', c.en]);
-    if (f === 'que') { en = clean([beD, p.en, c.en]); q = true; }
+    if (f === 'aff') en = clean([p.en, beD, compEn]);
+    if (f === 'neg') en = clean([p.en, beD, 'not', compEn]);
+    if (f === 'que') { en = clean([beD, p.en, compEn]); q = true; }
     ru = clean([p.ru, f === 'neg' ? 'не' : '', ruWas(i, cfg.gender), compRu]);
   }
   if (t === 'fut') {
-    if (f === 'aff') en = clean([p.en, 'will be', c.en]);
-    if (f === 'neg') en = clean([p.en, 'will not be', c.en]);
-    if (f === 'que') { en = clean(['will', p.en, 'be', c.en]); q = true; }
+    if (f === 'aff') en = clean([p.en, 'will be', compEn]);
+    if (f === 'neg') en = clean([p.en, 'will not be', compEn]);
+    if (f === 'que') { en = clean(['will', p.en, 'be', compEn]); q = true; }
     ru = clean([p.ru, f === 'neg' ? 'не' : '', RU_FUT[i], compRu]);
   }
 
@@ -331,7 +345,7 @@ function genModal(cfg) {
     const w = m.ru[g] || m.ru.m;
     ru = clean([p.ru, f === 'neg' ? 'не' : '', w, v.ru.inf, obj[1]]);
   } else if (m.noPron) {
-    ru = clean([m.ru[i], f === 'neg' ? 'не' : '', v.ru.inf, obj[1]]);
+    ru = clean([m.dat[i], f === 'neg' ? 'не' : '', m.verb, v.ru.inf, obj[1]]);
   } else {
     ru = clean([p.ru, f === 'neg' ? 'не' : '', m.ru[i], v.ru.inf, obj[1]]);
   }
