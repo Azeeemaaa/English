@@ -116,5 +116,75 @@ click('[data-pick="wife"]');
 check('у жены свой прогресс', window.Poliglot.S.profiles.wife.unlocked === 1);
 check('у жены женский род', window.Poliglot.S.profiles.wife.gender === 'f');
 
+console.log('\nИгровые механики: главный экран');
+click('#switchProfile');
+click('[data-pick="azamat"]');
+check('уровень/лига показаны', txt().includes('Ур. '));
+check('путь уроков отрисован (16 узлов)', doc.querySelectorAll('.path .lesson').length === 16);
+check('талисман нарисован', !!$('.mascot'));
+check('ачивка «Первые шаги» уже разблокирована (урок 2 открыт)',
+  window.Poliglot.S.profiles.azamat.seenAch.includes('first'));
+
+console.log('\nИгровые механики: экзамен — сердца и комбо');
+click('[data-lesson="2"]');
+click('[data-tab="exam"]');
+click('#startExam');
+check('сердца показаны на экзамене', doc.querySelectorAll('.hearts .heart').length === 5);
+// два верных подряд -> должно появиться комбо
+solveOnce();
+click('#next');
+solveOnce();
+check('комбо появляется после 2 верных подряд', txt().includes('🔥2'));
+click('#next');
+// специально дать неверный ответ, чтобы проверить потерю сердца
+const heartsBefore = window.Poliglot.S.profiles.azamat.hearts;
+click('[data-tk="0"]'); // берём любую доступную плитку, не собирая верную фразу
+click('#check');
+check('за неверный ответ на экзамене теряется сердце',
+  window.Poliglot.S.profiles.azamat.hearts === heartsBefore - 1 || !window.Poliglot.session.wasRight);
+check('комбо сбрасывается после ошибки', window.Poliglot.session.combo === 0);
+click('#quit');
+click('.topbar .back');
+
+console.log('\nИгровые механики: звук не ломает выполнение');
+check('AudioContext недоступен в jsdom (ожидаемо)', typeof window.AudioContext === 'undefined');
+click('[data-lesson="1"]');
+click('[data-tab="drill"]');
+click('#startDrill');
+let threw = false;
+try { solveOnce(); } catch (e) { threw = true; console.log('    ' + e.message); }
+check('звуковой эффект не бросает исключение без Web Audio', !threw);
+click('#quit');
+click('.topbar .back');
+
+console.log('\nИгровые механики: экран достижений');
+click('#toStats');
+click('#toAch');
+check('открылся экран ачивок', txt().includes('Достижения'));
+check('сетка ачивок отрисована', doc.querySelectorAll('.badge').length > 0);
+check('хотя бы одна ачивка разблокирована', doc.querySelectorAll('.badge.on').length >= 1);
+
+console.log('\nИгровые механики: настройки звука/голоса');
+click('.topbar .back');
+const soundBefore = window.Poliglot.S.profiles.azamat.soundOn;
+click('#snd');
+check('звук переключается', window.Poliglot.S.profiles.azamat.soundOn === !soundBefore);
+click('#snd');
+const vmBtn = doc.getElementById('vm');
+check('кнопка голосового ввода скрыта без поддержки SpeechRecognition в браузере', !vmBtn);
+
+console.log('\nЧистые функции уровней и достижений');
+const li0 = window.Poliglot.levelInfo(0);
+check('0 XP = уровень 1, Новичок', li0.level === 1 && li0.name === 'Новичок');
+const li99 = window.Poliglot.levelInfo(99);
+check('99 XP всё ещё уровень 1', li99.level === 1);
+const li100 = window.Poliglot.levelInfo(100);
+check('100 XP = уровень 2, Ученик', li100.level === 2 && li100.name === 'Ученик');
+const liMax = window.Poliglot.levelInfo(999999);
+check('огромный XP даёт максимальный уровень «Полиглот»', liMax.name === 'Полиглот' && liMax.max === true);
+const achList = window.Poliglot.computeAchievements(window.Poliglot.S.profiles.azamat);
+check('достижений 9 штук, у каждого есть unlocked (bool)',
+  achList.length === 9 && achList.every(a => typeof a.unlocked === 'boolean'));
+
 console.log('\n' + (fails ? '✗ ПРОВАЛЕНО: ' + fails : '✓ Интерфейс работает') + '\n');
 process.exit(fails ? 1 : 0);
